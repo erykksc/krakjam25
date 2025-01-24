@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bor67qmq6ix30"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m8k58"]
+font_size = 40
+font_color = Color(0, 0.586282, 0.0785397, 1)
+
+[node name="Label" type="Label"]
+top_level = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "+100"
+label_settings = SubResource("LabelSettings_m8k58")
