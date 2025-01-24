@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=7 format=3 uid="uid://cskn7ay35s5c4"]
 
+[ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ac66"]
@@ -19,6 +20,7 @@ glow_enabled = true
 size = Vector2(5, 5)
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_mut44")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4ycvo")
@@ -33,7 +35,16 @@ mesh = SubResource("PlaneMesh_t3rpt")
 skeleton = NodePath("")
 
 [node name="Player" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 current = true
 script = ExtResource("2_s41xm")
+CAMERA_TURN_SPEED = null
+
+[node name="Control" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
