@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=6 format=3 uid="uid://cskn7ay35s5c4"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_rdjab"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ac66"]
@@ -34,7 +33,6 @@ mesh = SubResource("PlaneMesh_t3rpt")
 skeleton = NodePath("")
 
 [node name="Player" type="Node3D" parent="."]
-script = ExtResource("1_rdjab")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 current = true
