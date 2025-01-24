@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=7 format=3 uid="uid://cskn7ay35s5c4"]
 
+[ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_8pwdb"]
 
@@ -31,6 +32,7 @@ shader_parameter/outline_width = 2.0
 size = Vector3(4, 1, 2)
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_mut44")
 
 [node name="kubek" parent="." instance=ExtResource("1_or0mw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39403, 0)
@@ -43,6 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 0.786137, 0.618052, 0, -0.618052, 0.786137, 
 shadow_enabled = true
 
 [node name="Player" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 current = true
@@ -69,3 +72,10 @@ material_overlay = SubResource("ShaderMaterial_qjqq2")
 mesh = SubResource("BoxMesh_7r2d6")
 
 [editable path="kubek"]
+
+[node name="Control" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
