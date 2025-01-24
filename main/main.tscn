@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://0ccgnvq5y8kl"]
+
+[ext_resource type="PackedScene" uid="uid://doosbmpx4kn7c" path="res://kubek.tscn" id="2_o107n"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_c8hei"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_no6wa"]
+size = Vector3(4, 1, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thws4"]
+render_priority = 0
+shader = ExtResource("3_c8hei")
+shader_parameter/outline_color = null
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_jqswx"]
+size = Vector3(4, 1, 2)
+
+[node name="main" type="Node3D"]
+
+[node name="bar" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bar"]
+shape = SubResource("BoxShape3D_no6wa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bar"]
+material_overlay = SubResource("ShaderMaterial_thws4")
+mesh = SubResource("BoxMesh_jqswx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.995239, 0.0974613, 0, -0.0974613, 0.995239, 0, 1.65487, 2.24618)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.619875, 0.784701, 0, -0.784701, 0.619875, 0, 2.81166, 2.66408)
+
+[node name="kubek" parent="." instance=ExtResource("2_o107n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 1.12635, 0.8)

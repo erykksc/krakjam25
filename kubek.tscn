@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://doosbmpx4kn7c"]
+
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_wxrpf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w2bnm"]
+render_priority = 0
+shader = ExtResource("1_wxrpf")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_unc3t"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vxrkh"]
+height = 0.4
+radius = 0.1
+
+[node name="kubek" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_overlay = SubResource("ShaderMaterial_w2bnm")
+mesh = SubResource("CylinderMesh_unc3t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_vxrkh")
