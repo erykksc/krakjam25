@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bibavg25nmyt8"
-path="res://.godot/imported/chomiczki+hand3.blend-eaf775656c2ba580d04c8f761c821968.scn"
+uid="uid://djjergh1616an"
+path="res://.godot/imported/chomiczki-hand.blend-7add9751ef75d3519a8552425783be37.scn"
 
 [deps]
 
-source_file="res://player/chomiczki+hand3.blend"
-dest_files=["res://.godot/imported/chomiczki+hand3.blend-eaf775656c2ba580d04c8f761c821968.scn"]
+source_file="res://player/chomiczki-hand.blend"
+dest_files=["res://.godot/imported/chomiczki-hand.blend-7add9751ef75d3519a8552425783be37.scn"]
 
 [params]
 
