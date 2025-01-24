@@ -1,12 +1,17 @@
 extends Camera3D
 
 @onready var player: Player = get_parent()
-
-## Increase this value to give a slower turn speed
+@onready var ray_cast_3d: RayCast3D = $RayCast3D
 @export var CAMERA_TURN_SPEED:float = 200
+
+var last_highlighted_mesh: MeshInstance3D = null
+var original_material_overlay: Material = null
 
 func _ready()->void:
 	set_process_input(true)
+
+func _process(delta: float) -> void:
+	highlight()
 
 func look_updown_rotation(new_rotation:float = 0)->Vector3:
 	"""
@@ -62,3 +67,28 @@ func _leave_tree()->void:
 	Show the mouse when we leave
 	"""
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func highlight() -> void:
+	if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("interactable"):
+		var colidingObject: Object = ray_cast_3d.get_collider()
+		
+		if colidingObject.is_in_group("interactable"):
+			var mesh: MeshInstance3D = colidingObject.get_node("MeshInstance3D")
+			
+			if mesh != last_highlighted_mesh:
+				# Reset the previous mesh to its original material
+				if last_highlighted_mesh and original_material_overlay:
+					last_highlighted_mesh.material_overlay = original_material_overlay
+				
+				# Store the current mesh's original material
+				original_material_overlay = mesh.material_overlay
+				last_highlighted_mesh = mesh
+				
+				# Apply the highlight material
+				mesh.material_overlay = preload("res://shaders/outline_white.tres")
+	else:
+		# Reset the last highlighted mesh when no collision
+		if last_highlighted_mesh and original_material_overlay:
+			last_highlighted_mesh.material_overlay = original_material_overlay
+			last_highlighted_mesh = null
+			original_material_overlay = null
