@@ -1,6 +1,6 @@
 extends Camera3D
 
-@onready var player: Player = get_parent()
+@onready var player: Node3D = get_parent()
 
 ## Increase this value to give a slower turn speed
 @export var CAMERA_TURN_SPEED:float = 200
