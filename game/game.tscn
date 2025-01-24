@@ -1,7 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=6 format=3 uid="uid://cskn7ay35s5c4"]
 
-[ext_resource type="PackedScene" uid="uid://doosbmpx4kn7c" path="res://kubek/kubek.tscn" id="1_or0mw"]
-[ext_resource type="Script" path="res://player/player.gd" id="1_rdjab"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_8pwdb"]
 
@@ -45,8 +43,6 @@ transform = Transform3D(1, 0, 0, 0, 0.786137, 0.618052, 0, -0.618052, 0.786137, 
 shadow_enabled = true
 
 [node name="Player" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86817, 2.46366)
-script = ExtResource("1_rdjab")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 current = true
