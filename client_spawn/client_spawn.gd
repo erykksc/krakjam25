@@ -5,7 +5,7 @@ extends Node3D
 @onready var spot_2: Marker3D = $Spot2
 @onready var spot_3: Marker3D = $Spot3
 
-var client1: PackedScene = preload("res://clients/client_1.tscn")
+var client1: PackedScene = preload("res://clients/puszek/puszek.tscn")
 var client2: PackedScene = preload("res://clients/client_2.tscn")
 var client3: PackedScene = preload("res://clients/client_3.tscn")
 
