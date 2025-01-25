@@ -6,13 +6,16 @@ extends Camera3D
 ## Increase this value to give a slower turn speed
 @export var CAMERA_TURN_SPEED:float = 200
 
+@export var period:float = 0.3
+@export var magnitude:float = 0.2
+
 var last_highlighted_mesh: MeshInstance3D = null
 var original_material_overlay: Material = null
 
 func _ready()->void:
 	set_process_input(true)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	highlight()
 
 func look_updown_rotation(new_rotation:float = 0)->Vector3:
