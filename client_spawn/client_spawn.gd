@@ -5,7 +5,7 @@ extends Node3D
 @onready var spot_2: Marker3D = $Spot2
 @onready var spot_3: Marker3D = $Spot3
 
-var client1: PackedScene = preload("res://clients/client_1.tscn")
+var client1: PackedScene = preload("res://clients/puszek/puszek.tscn")
 var client2: PackedScene = preload("res://clients/client_2.tscn")
 var client3: PackedScene = preload("res://clients/client_3.tscn")
 
@@ -36,17 +36,11 @@ func spawn(onTimeout: Callable) -> bool:
 
 	var spot: Marker3D = spots[spotIdx]
 
-	var client:Variant = model.instantiate()
-	spot.add_child(client)
-	client.global_position = spot.global_position
-
-	var waitTimer: Timer = client.get_node("WaitTimer")
-
-	waitTimer.timeout.connect(func()-> void:
-		client.queue_free()
+	var client:Client = model.instantiate()
+	client.on_order_timeout = func()->void:
 		isSpotFree[spotIdx] = true
 		onTimeout.call()
-	)
-	waitTimer.start()
+	spot.add_child(client)
+	client.global_position = spot.global_position
 
 	return true
