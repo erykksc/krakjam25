@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di3sp7oy561ys"
-path.s3tc="res://.godot/imported/hand-hamster_hand_Metallic-hand_Roughness.png-4069fdfda228e8d67073591b86adaa11.s3tc.ctex"
+uid="uid://0qtufagpab0n"
+path.s3tc="res://.godot/imported/hand_hamster_hand_Metallic-hand_Roughness.png-b870597f5582be7f0395d68beab09606.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://player/hand-hamster/hand-hamster_hand_Metallic-hand_Roughness.png"
-dest_files=["res://.godot/imported/hand-hamster_hand_Metallic-hand_Roughness.png-4069fdfda228e8d67073591b86adaa11.s3tc.ctex"]
+source_file="res://player/hand_hamster/hand_hamster_hand_Metallic-hand_Roughness.png"
+dest_files=["res://.godot/imported/hand_hamster_hand_Metallic-hand_Roughness.png-b870597f5582be7f0395d68beab09606.s3tc.ctex"]
 
 [params]
 

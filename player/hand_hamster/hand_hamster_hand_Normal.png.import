@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn7exsccibta5"
-path.s3tc="res://.godot/imported/hand-hamster_chomik_Roughness.png-7290b36d92853a7c0126462ee53dd7d8.s3tc.ctex"
+uid="uid://bqwbldu5kl3tc"
+path.s3tc="res://.godot/imported/hand_hamster_hand_Normal.png-1ad7ca9e2c2eccae47aff5699ae1ecc6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "def6f214cb65ee61d614a6e9a1518f73"
+"md5": "0178b4931d0e761d7bb99b9b0ffe19ae"
 }
 
 [deps]
 
-source_file="res://player/hand-hamster/hand-hamster_chomik_Roughness.png"
-dest_files=["res://.godot/imported/hand-hamster_chomik_Roughness.png-7290b36d92853a7c0126462ee53dd7d8.s3tc.ctex"]
+source_file="res://player/hand_hamster/hand_hamster_hand_Normal.png"
+dest_files=["res://.godot/imported/hand_hamster_hand_Normal.png-1ad7ca9e2c2eccae47aff5699ae1ecc6.s3tc.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://player/hand_hamster/hand_hamster_hand_Normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

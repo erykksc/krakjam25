@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deco11m2y23mx"
-path.s3tc="res://.godot/imported/hand-hamster_hand_BaseColor.png-c59a77d516a1437f3e0f8dea48dd6003.s3tc.ctex"
+uid="uid://c6ft0pkl6aywd"
+path.s3tc="res://.godot/imported/hand_hamster_chomik_BaseColor.png-c27ffe8440c318f2a1395b14ae87232a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "75f286b1984c81777dcd2466cb424f4e"
+"md5": "272e189cb769ec7a1f503efef4522ef3"
 }
 
 [deps]
 
-source_file="res://player/hand-hamster/hand-hamster_hand_BaseColor.png"
-dest_files=["res://.godot/imported/hand-hamster_hand_BaseColor.png-c59a77d516a1437f3e0f8dea48dd6003.s3tc.ctex"]
+source_file="res://player/hand_hamster/hand_hamster_chomik_BaseColor.png"
+dest_files=["res://.godot/imported/hand_hamster_chomik_BaseColor.png-c27ffe8440c318f2a1395b14ae87232a.s3tc.ctex"]
 
 [params]
 

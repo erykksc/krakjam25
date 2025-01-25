@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://e24nibx5r303"
-path="res://.godot/imported/hand-hamster.glb-877dce9039a87de977a6efc7da91e9db.scn"
+path="res://.godot/imported/hand_hamster.glb-c311aa97f6fc2c90a971bc11828b4f48.scn"
 
 [deps]
 
-source_file="res://player/hand-hamster/hand-hamster.glb"
-dest_files=["res://.godot/imported/hand-hamster.glb-877dce9039a87de977a6efc7da91e9db.scn"]
+source_file="res://player/hand_hamster/hand_hamster.glb"
+dest_files=["res://.godot/imported/hand_hamster.glb-c311aa97f6fc2c90a971bc11828b4f48.scn"]
 
 [params]
 
