@@ -20,9 +20,6 @@ size = Vector2(20, 1000)
 [node name="skillcheck" type="Node3D"]
 script = ExtResource("1_cup30")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.61883e-05, 1.19209e-07, 10.0025)
-
 [node name="playerbar" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9204)
 collision_layer = 128

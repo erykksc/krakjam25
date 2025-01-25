@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=27 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
+[ext_resource type="Script" path="res://player/player.gd" id="2_nox8s"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
 [ext_resource type="Script" path="res://room/room.gd" id="3_3oh60"]
 [ext_resource type="PackedScene" uid="uid://boygvmfdnncdo" path="res://player/reka/reka.tscn" id="3_un1ub"]
@@ -49,6 +50,7 @@ environment = SubResource("Environment_4ycvo")
 [node name="Player" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(-4.31403e-08, -0.161122, 0.986935, -7.04285e-09, 0.986935, 0.161122, -1, 0, -4.37114e-08, 3.09197, 1.58222, 0)
+script = ExtResource("2_nox8s")
 
 [node name="PlayerCamera" type="Camera3D" parent="Player"]
 unique_name_in_owner = true
@@ -92,6 +94,8 @@ script = ExtResource("3_3oh60")
 [node name="c_baza" parent="RoomInteractable" instance=ExtResource("4_xdmhe")]
 
 [node name="kolo" parent="RoomInteractable" instance=ExtResource("5_oftn8")]
+
+[node name="StaticBody3D" parent="RoomInteractable/kolo/kolo" index="0" groups=["kulki"]]
 
 [node name="kubki" parent="RoomInteractable" instance=ExtResource("6_rdf3r")]
 
@@ -139,3 +143,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17204, 2.64406, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
 
 [editable path="Player/PlayerCamera/reka"]
+[editable path="RoomInteractable/kolo"]
