@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://k6w5qyx8egfb"]
 
 [ext_resource type="Script" path="res://clients/client.gd" id="1_rdd47"]
-[ext_resource type="PackedScene" uid="uid://q3rddldmxo4k" path="res://clients/puszek/puszek.glb" id="2_bfwai"]
+[ext_resource type="PackedScene" uid="uid://dhipqhv4y5mh5" path="res://clients/puszek/puszek.glb" id="2_bfwai"]
 
 [node name="Puszek" type="Node3D"]
 script = ExtResource("1_rdd47")
