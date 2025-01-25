@@ -6,16 +6,18 @@ extends Camera3D
 
 ## Increase this value to give a slower turn speed
 @export var CAMERA_TURN_SPEED:float = 200
-
 @export var shake_period:float = 0.3
 @export var shake_magnitude:float = 0.05
+@export var movement_disabled: bool = false
 
 var last_highlighted_mesh: MeshInstance3D = null
 var original_material_overlay: Material = null
 
+
+
 func _ready()->void:
 	set_process_input(true)
-
+	
 func _process(_delta: float) -> void:
 	highlight()
 
@@ -47,7 +49,7 @@ func _input(event:InputEvent)->void:
 	"""
 	##
 	## We'll only process mouse motion events
-	if not event is InputEventMouseMotion:
+	if not event is InputEventMouseMotion or movement_disabled:
 		return
 
 	##

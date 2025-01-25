@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=28 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_nox8s"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dlpyhx5xkt2mo" path="res://level/przedmioty/cz_smak.blend" id="3_ybcfq"]
 [ext_resource type="PackedScene" uid="uid://1mdfqqqf0ev4" path="res://level/przedmioty/c_baza.blend" id="4_xdmhe"]
 [ext_resource type="PackedScene" uid="uid://dt08dx5qq0htl" path="res://level/przedmioty/kolo.blend" id="5_oftn8"]
+[ext_resource type="PackedScene" uid="uid://n6gl1rx7yjw6" path="res://skillcheck/skillcheck.tscn" id="5_t8kic"]
 [ext_resource type="PackedScene" uid="uid://6gn7eh8nxhjw" path="res://level/przedmioty/kubki.blend" id="6_rdf3r"]
 [ext_resource type="PackedScene" uid="uid://ci1q7yemudxp3" path="res://level/przedmioty/lod.blend" id="7_rmppl"]
 [ext_resource type="PackedScene" uid="uid://t2duaaa5wfie" path="res://level/przedmioty/mozdzierz.blend" id="8_4au0y"]
@@ -68,6 +69,9 @@ texture = SubResource("PlaceholderTexture2D_qrqfl")
 
 [node name="reka" parent="Player/PlayerCamera" instance=ExtResource("3_un1ub")]
 transform = Transform3D(-0.938215, 0.288664, -0.190852, -0.0557565, 0.41821, 0.906637, 0.34153, 0.861262, -0.376276, 0.250113, -0.234487, -0.687102)
+
+[node name="skillcheck" parent="Player/PlayerCamera" instance=ExtResource("5_t8kic")]
+transform = Transform3D(0.1, 2.2205e-17, 0, 1.11024e-17, 0.1, -6.98824e-23, 0, -7.18235e-23, 0.1, 5.35753e-08, 0.200095, -1.22566)
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true
@@ -143,4 +147,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17204, 2.64406, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
 
 [editable path="Player/PlayerCamera/reka"]
+[editable path="Player/PlayerCamera/skillcheck"]
 [editable path="RoomInteractable/kolo"]
