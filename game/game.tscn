@@ -57,7 +57,9 @@ script = ExtResource("2_nox8s")
 
 [node name="PlayerCamera" type="Camera3D" parent="Player"]
 unique_name_in_owner = true
+transform = Transform3D(1, -1.55431e-14, 3.90799e-14, 1.69407e-20, 0.999999, 7.45058e-08, 0, -7.45058e-08, 0.999999, -0.1476, 0.063804, 0.124163)
 current = true
+fov = 47.0
 script = ExtResource("2_s41xm")
 
 [node name="RayCast3D" type="RayCast3D" parent="Player/PlayerCamera"]
