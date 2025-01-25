@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://5otiaekn0mr" path="res://player/hand/hand.glb" id="4_n0qlv"]
 [ext_resource type="PackedScene" uid="uid://e24nibx5r303" path="res://player/hand_hamster/hand_hamster.glb" id="5_i8408"]
 [ext_resource type="PackedScene" uid="uid://dt08dx5qq0htl" path="res://level/przedmioty/kolo.blend" id="5_oftn8"]
+[ext_resource type="PackedScene" uid="uid://n6gl1rx7yjw6" path="res://skillcheck/skillcheck.tscn" id="5_t8kic"]
 [ext_resource type="PackedScene" uid="uid://6gn7eh8nxhjw" path="res://level/przedmioty/kubki.blend" id="6_rdf3r"]
 [ext_resource type="PackedScene" uid="uid://ci1q7yemudxp3" path="res://level/przedmioty/lod.blend" id="7_rmppl"]
 [ext_resource type="PackedScene" uid="uid://gfd6ki04ofa4" path="res://level/przedmioty/cz_smak.glb" id="11_4b0us"]
@@ -73,6 +74,9 @@ transform = Transform3D(-1, 3.55274e-15, -1.50996e-07, -1.77636e-15, 1, 3.11283e
 [node name="hand_hamster" parent="Player/PlayerCamera" instance=ExtResource("5_i8408")]
 transform = Transform3D(1, 1.7349e-14, -2.4869e-14, 4.44091e-16, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.083, -0.02, -0.383)
 visible = false
+
+[node name="skillcheck" parent="Player/PlayerCamera" instance=ExtResource("5_t8kic")]
+transform = Transform3D(0.1, 2.2205e-17, 0, 1.11024e-17, 0.1, -6.98824e-23, 0, -7.18235e-23, 0.1, 5.35753e-08, 0.200095, -1.22566)
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true
@@ -147,4 +151,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17204, 2.64406, 0)
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
 
+[editable path="Player/PlayerCamera/reka"]
+[editable path="Player/PlayerCamera/skillcheck"]
 [editable path="RoomInteractable/kolo"]

@@ -47,5 +47,20 @@ shape = SubResource("BoxShape3D_4jrr4")
 modulate = Color(0.73411, 0.92152, 0, 1)
 texture = SubResource("PlaceholderTexture2D_8x4rk")
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.539
+anchor_top = 0.103
+anchor_right = 0.565
+anchor_bottom = 0.69
+offset_left = 0.119873
+offset_top = -0.240005
+offset_right = 3.08008
+offset_bottom = -0.200073
+grow_horizontal = 0
+grow_vertical = 2
+fill_mode = 3
+show_percentage = false
+
 [connection signal="area_entered" from="playerbar" to="." method="_on_playerbar_area_entered"]
 [connection signal="area_exited" from="playerbar" to="." method="_on_playerbar_area_exited"]

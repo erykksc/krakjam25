@@ -2,6 +2,8 @@ extends Node3D
 
 @onready var crosshair: Sprite3D = $PlayerCamera/Crosshair
 @onready var ray_cast_3d: RayCast3D = $PlayerCamera/RayCast3D
+@onready var skillcheck: Node3D = $PlayerCamera/skillcheck
+@onready var progress_bar: ProgressBar = $PlayerCamera/skillcheck/ProgressBar
 
 var SKILLCHECK: PackedScene = preload("res://skillcheck/skillcheck.tscn")
 var skillcheck_state: bool
@@ -19,23 +21,23 @@ var smooth_speed := 5.0
 @onready var hand: Node3D = $PlayerCamera/hand
 @onready var hand_hamster: Node3D = $PlayerCamera/hand_hamster
 
+func _ready() -> void:
+	skillcheck.visible = false
+	progress_bar.visible = false
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		# skill check on hamster
 		if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("kulki"):
-			skillcheck_state = true
-			skillcheck_instance = SKILLCHECK.instantiate()
-			$PlayerCamera.add_child(skillcheck_instance)
-			skillcheck_instance.scale = Vector3(0.1, 0.1, 0.1)
-			skillcheck_instance.position = Vector3(0, 0.16, -0.975)
+			skillcheck.visible = true
+			progress_bar.visible = true
 			crosshair.visible = false
+			$PlayerCamera.movement_disabled = true
 		# TODO: add other interactions and remove this one
 		else:
 			start_squeezing_hamster()
 	if event.is_action_released("interact"):
 		stop_squeezing_hamster()
-		
-
 
 func start_squeezing_hamster() -> void:
 	var animPlayer:AnimationPlayer = hand_hamster.get_node("AnimationPlayer")
