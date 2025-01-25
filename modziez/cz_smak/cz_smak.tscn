@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkjqfy2y57q80"]
+
+[ext_resource type="PackedScene" uid="uid://dlpyhx5xkt2mo" path="res://level/przedmioty/cz_smak.blend" id="1_hsmea"]
+[ext_resource type="Material" uid="uid://bed1jlpi2d3a1" path="res://shaders/outline_black.tres" id="2_vg50q"]
+
+[node name="cz_smak" groups=["interactable"] instance=ExtResource("1_hsmea")]
+
+[node name="cz_smak" parent="." index="0"]
+material_overlay = ExtResource("2_vg50q")

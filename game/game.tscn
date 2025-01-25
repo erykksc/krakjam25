@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=24 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
+[ext_resource type="Script" path="res://room/room.gd" id="3_3oh60"]
 [ext_resource type="PackedScene" uid="uid://dlpyhx5xkt2mo" path="res://level/przedmioty/cz_smak.blend" id="3_ybcfq"]
 [ext_resource type="PackedScene" uid="uid://1mdfqqqf0ev4" path="res://level/przedmioty/c_baza.blend" id="4_xdmhe"]
 [ext_resource type="PackedScene" uid="uid://dt08dx5qq0htl" path="res://level/przedmioty/kolo.blend" id="5_oftn8"]
@@ -44,12 +45,13 @@ script = ExtResource("1_mut44")
 environment = SubResource("Environment_4ycvo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.786137, 0.618052, 0, -0.618052, 0.786137, 0, 3.19671, 3.45541)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.62571, 0.278959)
+light_angular_distance = 20.0
 shadow_enabled = true
 
 [node name="Player" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.221, 1, -0.00679678)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.23823, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 current = true
@@ -61,7 +63,7 @@ target_position = Vector3(0, -100, 0)
 collision_mask = 2
 
 [node name="Crosshair" type="Sprite3D" parent="Player/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, -2.09548e-08, 0, -0.527056)
 texture = SubResource("PlaceholderTexture2D_qrqfl")
 
 [node name="Control" type="Control" parent="."]
@@ -81,32 +83,66 @@ offset_bottom = 89.0
 text = "POINTS"
 label_settings = SubResource("LabelSettings_0m1y1")
 
-[node name="cz_smak" parent="." instance=ExtResource("3_ybcfq")]
+[node name="RoomInteractable" type="Node3D" parent="."]
+script = ExtResource("3_3oh60")
 
-[node name="c_baza" parent="." instance=ExtResource("4_xdmhe")]
+[node name="cz_smak" parent="RoomInteractable" instance=ExtResource("3_ybcfq")]
 
-[node name="kolo" parent="." instance=ExtResource("5_oftn8")]
+[node name="c_baza" parent="RoomInteractable" instance=ExtResource("4_xdmhe")]
 
-[node name="kubki" parent="." instance=ExtResource("6_rdf3r")]
+[node name="kolo" parent="RoomInteractable" instance=ExtResource("5_oftn8")]
 
-[node name="lod" parent="." instance=ExtResource("7_rmppl")]
+[node name="kubki" parent="RoomInteractable" instance=ExtResource("6_rdf3r")]
 
-[node name="mozdzierz" parent="." instance=ExtResource("8_4au0y")]
+[node name="lod" parent="RoomInteractable" instance=ExtResource("7_rmppl")]
 
-[node name="m_baza" parent="." instance=ExtResource("9_wkucw")]
+[node name="mozdzierz" parent="RoomInteractable" instance=ExtResource("8_4au0y")]
 
-[node name="n_smak" parent="." instance=ExtResource("10_qdx5j")]
+[node name="m_baza" parent="RoomInteractable" instance=ExtResource("9_wkucw")]
 
-[node name="smietnik" parent="." instance=ExtResource("11_phkis")]
+[node name="n_smak" parent="RoomInteractable" instance=ExtResource("10_qdx5j")]
 
-[node name="zgrzewarka" parent="." instance=ExtResource("12_8mgey")]
+[node name="smietnik" parent="RoomInteractable" instance=ExtResource("11_phkis")]
 
-[node name="z_baza" parent="." instance=ExtResource("13_ftyby")]
+[node name="zgrzewarka" parent="RoomInteractable" instance=ExtResource("12_8mgey")]
 
-[node name="z_smak" parent="." instance=ExtResource("14_gv8aj")]
+[node name="z_baza" parent="RoomInteractable" instance=ExtResource("13_ftyby")]
 
-[node name="bar" parent="." instance=ExtResource("15_8014d")]
+[node name="z_smak" parent="RoomInteractable" instance=ExtResource("14_gv8aj")]
 
-[node name="lada" parent="." instance=ExtResource("16_wan7r")]
+[node name="RoomDesign" type="Node3D" parent="."]
 
-[node name="sciany" parent="." instance=ExtResource("17_nkmt6")]
+[node name="bar" parent="RoomDesign" instance=ExtResource("15_8014d")]
+
+[node name="lada" parent="RoomDesign" instance=ExtResource("16_wan7r")]
+
+[node name="sciany" parent="RoomDesign" instance=ExtResource("17_nkmt6")]
+
+[node name="ClientSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.2, 0)
+
+[node name="ClientSpawnPeriod" type="Timer" parent="ClientSpawn"]
+wait_time = 3.0
+autostart = true
+
+[node name="Spot1" type="Marker3D" parent="ClientSpawn"]
+
+[node name="WaitTime1" type="Timer" parent="ClientSpawn/Spot1"]
+wait_time = 12.0
+
+[node name="Spot2" type="Marker3D" parent="ClientSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="WaitTime2" type="Timer" parent="ClientSpawn/Spot2"]
+wait_time = 12.0
+
+[node name="Spot3" type="Marker3D" parent="ClientSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="WaitTime3" type="Timer" parent="ClientSpawn/Spot3"]
+wait_time = 12.0
+
+[connection signal="timeout" from="ClientSpawn/ClientSpawnPeriod" to="." method="_on_client_spawn_period_timeout"]
+[connection signal="timeout" from="ClientSpawn/Spot1/WaitTime1" to="." method="_on_wait_time_1_timeout"]
+[connection signal="timeout" from="ClientSpawn/Spot2/WaitTime2" to="." method="_on_wait_time_2_timeout"]
+[connection signal="timeout" from="ClientSpawn/Spot3/WaitTime3" to="." method="_on_wait_time_3_timeout"]

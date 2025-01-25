@@ -73,18 +73,16 @@ func _leave_tree()->void:
 func highlight() -> void:
 	if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("interactable"):
 		var colidingObject: Object = ray_cast_3d.get_collider()
+		var mesh: MeshInstance3D = colidingObject.get_parent()
 		
-		if colidingObject.is_in_group("interactable"):
-			var mesh: MeshInstance3D = colidingObject.get_node("MeshInstance3D")
+		if mesh != last_highlighted_mesh:
+			if last_highlighted_mesh and original_material_overlay:
+				last_highlighted_mesh.material_overlay = original_material_overlay
 			
-			if mesh != last_highlighted_mesh:
-				if last_highlighted_mesh and original_material_overlay:
-					last_highlighted_mesh.material_overlay = original_material_overlay
+			original_material_overlay = mesh.material_overlay
+			last_highlighted_mesh = mesh
 				
-				original_material_overlay = mesh.material_overlay
-				last_highlighted_mesh = mesh
-				
-				mesh.material_overlay = preload("res://shaders/outline_white.tres")
+			mesh.material_overlay = preload("res://shaders/outline_white.tres")
 	else:
 		if last_highlighted_mesh and original_material_overlay:
 			last_highlighted_mesh.material_overlay = original_material_overlay
