@@ -10,13 +10,7 @@ var client2: PackedScene = preload("res://clients/client_2.tscn")
 var client3: PackedScene = preload("res://clients/client_3.tscn")
 
 @onready var spots: Array[Marker3D] = [spot_1, spot_2, spot_3]
-var isSpotFree: Array[bool] = []
 @onready var clientModels: Array[PackedScene] = [client1, client2, client3]
-
-func _ready()->void:
-	isSpotFree.resize(spots.size())
-	for i:int in isSpotFree.size():
-		isSpotFree[i] = true
 
 func spawn(onTimeout: Callable) -> bool:
 	var model: PackedScene = clientModels.pick_random()
@@ -24,7 +18,7 @@ func spawn(onTimeout: Callable) -> bool:
 	# find first free spot in the list
 	var spotIdx: int = -1
 	for i:int in spots.size():
-		if isSpotFree[i]:
+		if spots[i].get_child_count() == 0:
 			spotIdx = i
 			break
 	
@@ -32,14 +26,10 @@ func spawn(onTimeout: Callable) -> bool:
 	if spotIdx ==-1:
 		return false
 
-	isSpotFree[spotIdx] = false
-
 	var spot: Marker3D = spots[spotIdx]
 
 	var client:Client = model.instantiate()
-	client.on_order_timeout = func()->void:
-		isSpotFree[spotIdx] = true
-		onTimeout.call()
+	client.on_order_timeout = func()->void: onTimeout.call()
 	spot.add_child(client)
 	client.global_position = spot.global_position
 

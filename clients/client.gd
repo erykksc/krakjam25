@@ -17,12 +17,13 @@ const CLOUD_SCENE := preload("res://cloud/cloud.tscn")
 # This variable should be set by the script spawning the client
 var on_order_timeout : Callable = func()->void: pass
 
+var orderTimer:= Timer.new()
+
 func _ready()->void:
 	clouds = Node3D.new()
 	add_child(clouds)
 
 	# start order timer
-	var orderTimer:= Timer.new()
 	orderTimer.one_shot= true
 	orderTimer.timeout.connect(func()-> void:
 		queue_free()
@@ -56,3 +57,28 @@ func addCloud(ingredient: String)->void:
 	clouds.add_child(cloudInstance)
 	var cloudOff:float = first_cloud_y_offset+ cloud_margin*(clouds.get_children().size()-1)
 	cloudInstance.position += Vector3(0,cloudOff,0)
+
+## WARNING: side effects, prepared_order is sorted
+func submit_order(prepared_order:Array[String]) -> void:
+	order.sort()
+	prepared_order.sort()
+
+	if order.size() != prepared_order.size():
+		_on_wrong_order_submitted()
+		return
+	for i in order.size():
+		if order[i] != prepared_order[i]:
+			_on_correct_order_submitted()
+			return 
+	_on_correct_order_submitted()
+	
+func _on_wrong_order_submitted() -> void:
+	print("wrong order submitted")
+	orderTimer.timeout.emit()
+	orderTimer.stop()
+	queue_free()
+
+func _on_correct_order_submitted() -> void:
+	print("good order submitted")
+	orderTimer.stop()
+	queue_free()
