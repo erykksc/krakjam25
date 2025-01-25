@@ -1,9 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=23 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
-[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_8pwdb"]
-[ext_resource type="PackedScene" uid="uid://doosbmpx4kn7c" path="res://kubek/kubek.tscn" id="4_1geip"]
+[ext_resource type="PackedScene" uid="uid://dlpyhx5xkt2mo" path="res://level/przedmioty/cz_smak.blend" id="3_ybcfq"]
+[ext_resource type="PackedScene" uid="uid://1mdfqqqf0ev4" path="res://level/przedmioty/c_baza.blend" id="4_xdmhe"]
+[ext_resource type="PackedScene" uid="uid://dt08dx5qq0htl" path="res://level/przedmioty/kolo.blend" id="5_oftn8"]
+[ext_resource type="PackedScene" uid="uid://6gn7eh8nxhjw" path="res://level/przedmioty/kubki.blend" id="6_rdf3r"]
+[ext_resource type="PackedScene" uid="uid://ci1q7yemudxp3" path="res://level/przedmioty/lod.blend" id="7_rmppl"]
+[ext_resource type="PackedScene" uid="uid://t2duaaa5wfie" path="res://level/przedmioty/mozdzierz.blend" id="8_4au0y"]
+[ext_resource type="PackedScene" uid="uid://dckpvyrr7v28y" path="res://level/przedmioty/m_baza.blend" id="9_wkucw"]
+[ext_resource type="PackedScene" uid="uid://boybyh8kjjoug" path="res://level/przedmioty/n_smak.blend" id="10_qdx5j"]
+[ext_resource type="PackedScene" uid="uid://d0x36b11s7w84" path="res://level/przedmioty/smietnik.blend" id="11_phkis"]
+[ext_resource type="PackedScene" uid="uid://c037jlii4udrv" path="res://level/przedmioty/zgrzewarka.blend" id="12_8mgey"]
+[ext_resource type="PackedScene" uid="uid://p8g3tim6rohx" path="res://level/przedmioty/z_baza.blend" id="13_ftyby"]
+[ext_resource type="PackedScene" uid="uid://c0twx7njgeuby" path="res://level/przedmioty/z_smak.blend" id="14_gv8aj"]
+[ext_resource type="PackedScene" uid="uid://btlpfefwnb6kp" path="res://level/sklep/bar.blend" id="15_8014d"]
+[ext_resource type="PackedScene" uid="uid://ci5rg3xtfcecm" path="res://level/sklep/lada.blend" id="16_wan7r"]
+[ext_resource type="PackedScene" uid="uid://cjyqp8b76bu53" path="res://level/sklep/sciany.blend" id="17_nkmt6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ac66"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,18 +32,6 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qrqfl"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_e1q0c"]
-size = Vector3(4, 1, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjqq2"]
-render_priority = 0
-shader = ExtResource("3_8pwdb")
-shader_parameter/outline_color = null
-shader_parameter/outline_width = 2.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_7r2d6"]
-size = Vector3(4, 1, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0m1y1"]
 font_size = 80
@@ -48,7 +49,7 @@ shadow_enabled = true
 
 [node name="Player" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48373, 1.49007)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.221, 1, -0.00679678)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 current = true
@@ -62,17 +63,6 @@ collision_mask = 3
 [node name="Crosshair" type="Sprite3D" parent="Player/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, -1)
 texture = SubResource("PlaceholderTexture2D_qrqfl")
-
-[node name="bar" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bar"]
-shape = SubResource("BoxShape3D_e1q0c")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="bar"]
-material_overlay = SubResource("ShaderMaterial_qjqq2")
-mesh = SubResource("BoxMesh_7r2d6")
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true
@@ -91,5 +81,32 @@ offset_bottom = 89.0
 text = "POINTS"
 label_settings = SubResource("LabelSettings_0m1y1")
 
-[node name="kubek" parent="." instance=ExtResource("4_1geip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.697837, 1.28343, 0)
+[node name="cz_smak" parent="." instance=ExtResource("3_ybcfq")]
+
+[node name="c_baza" parent="." instance=ExtResource("4_xdmhe")]
+
+[node name="kolo" parent="." instance=ExtResource("5_oftn8")]
+
+[node name="kubki" parent="." instance=ExtResource("6_rdf3r")]
+
+[node name="lod" parent="." instance=ExtResource("7_rmppl")]
+
+[node name="mozdzierz" parent="." instance=ExtResource("8_4au0y")]
+
+[node name="m_baza" parent="." instance=ExtResource("9_wkucw")]
+
+[node name="n_smak" parent="." instance=ExtResource("10_qdx5j")]
+
+[node name="smietnik" parent="." instance=ExtResource("11_phkis")]
+
+[node name="zgrzewarka" parent="." instance=ExtResource("12_8mgey")]
+
+[node name="z_baza" parent="." instance=ExtResource("13_ftyby")]
+
+[node name="z_smak" parent="." instance=ExtResource("14_gv8aj")]
+
+[node name="bar" parent="." instance=ExtResource("15_8014d")]
+
+[node name="lada" parent="." instance=ExtResource("16_wan7r")]
+
+[node name="sciany" parent="." instance=ExtResource("17_nkmt6")]
