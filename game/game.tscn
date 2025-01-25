@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=29 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_nox8s"]
@@ -151,6 +151,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17204, 2.64406, 0)
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
 
-[editable path="Player/PlayerCamera/reka"]
 [editable path="Player/PlayerCamera/skillcheck"]
 [editable path="RoomInteractable/kolo"]
