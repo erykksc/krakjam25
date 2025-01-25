@@ -6,6 +6,8 @@
 [node name="Client1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_hhxjv")
+order_wait_time = null
+points_for_order = null
 
 [node name="WaitTimer" type="Timer" parent="."]
 wait_time = 3.0
