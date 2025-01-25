@@ -36,17 +36,9 @@ func spawn(onTimeout: Callable) -> bool:
 
 	var spot: Marker3D = spots[spotIdx]
 
-	var client:Variant = model.instantiate()
+	var client:Client = model.instantiate()
+	client.on_order_timeout = onTimeout
 	spot.add_child(client)
 	client.global_position = spot.global_position
-
-	var waitTimer: Timer = client.get_node("WaitTimer")
-
-	waitTimer.timeout.connect(func()-> void:
-		client.queue_free()
-		isSpotFree[spotIdx] = true
-		onTimeout.call()
-	)
-	waitTimer.start()
 
 	return true
