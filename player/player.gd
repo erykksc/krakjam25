@@ -7,8 +7,13 @@ var SKILLCHECK: PackedScene = preload("res://skillcheck/skillcheck.tscn")
 var skillcheck_state: bool
 var skillcheck_instance: Node3D
 
+# Hand skeleton
+@onready var skeleton: Skeleton3D = $PlayerCamera/hand/Armature/Skeleton3D
+@onready var wrist_bone_idx := skeleton.find_bone("przedramie")  # or your root bone name
 
-
+var wobble_strength := 1
+var smooth_speed := 5.0
+@onready var last_rotation := rotation
 
 func _input(event: InputEvent) -> void:
 	if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("kulki"):
@@ -19,3 +24,23 @@ func _input(event: InputEvent) -> void:
 			skillcheck_instance.scale = Vector3(0.1, 0.1, 0.1)
 			skillcheck_instance.position = Vector3(0, 0.16, -0.975)
 			crosshair.visible = false
+
+# TODO: fix the wobble on y coordinates
+# currently it doesn't work because player is rotated on the x axis and camera3d on the y axis
+# so the rotation_diff is not accurate
+func _process(delta:float)-> void:
+	var initial_rotation := skeleton.get_bone_pose_rotation(wrist_bone_idx).get_euler()
+
+	var rotation_diff := rotation - last_rotation
+
+	# Convert to rotation (-wobble to +wobble)
+	var target_rotation := initial_rotation + Vector3(
+		(rotation_diff.x) * wobble_strength,
+		0,
+		(-rotation_diff.y) * wobble_strength,
+	)
+
+	# Smooth interpolation
+	var wrist_rotation := initial_rotation.lerp(target_rotation, smooth_speed * delta)
+	skeleton.set_bone_pose_rotation(wrist_bone_idx, Quaternion.from_euler(wrist_rotation))
+	last_rotation = rotation
