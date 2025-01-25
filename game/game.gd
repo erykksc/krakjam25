@@ -33,7 +33,7 @@ var spot3_status: bool = false
 @onready var wait_time_2: Timer = $ClientSpawn/Spot2/WaitTime2
 @onready var wait_time_3: Timer = $ClientSpawn/Spot3/WaitTime3
 
-var client1: PackedScene = preload("res://clients/client_1.tscn")
+var client1: PackedScene = preload("res://clients/klient_puszek.blend")
 var client2: PackedScene = preload("res://clients/client_2.tscn")
 var client3: PackedScene = preload("res://clients/client_3.tscn")
 
@@ -110,18 +110,21 @@ func spawning_client() -> void:
 		instance1 = choose_random_model()
 		add_child(instance1)
 		instance1.global_position = spot_1.global_position
+		instance1.rotate_y(1.5)
 		wait_time_1.start()
 	elif spot_choose == 2 and spot2_status != true:
 		spot2_status = true
 		instance2 = choose_random_model()
 		add_child(instance2)
 		instance2.global_position = spot_2.global_position
+		instance2.rotate_y(1.5)
 		wait_time_2.start()
 	elif spot_choose == 3 and spot3_status != true:
 		instance3 = choose_random_model()
 		spot3_status = true
 		add_child(instance3)
 		instance3.global_position = spot_3.global_position
+		instance3.rotate_y(1.5)
 		wait_time_3.start()
 
 func choose_random_model() -> Node3D:

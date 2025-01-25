@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=25 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
 [ext_resource type="Script" path="res://room/room.gd" id="3_3oh60"]
+[ext_resource type="PackedScene" uid="uid://boygvmfdnncdo" path="res://player/reka/reka.tscn" id="3_un1ub"]
 [ext_resource type="PackedScene" uid="uid://dlpyhx5xkt2mo" path="res://level/przedmioty/cz_smak.blend" id="3_ybcfq"]
 [ext_resource type="PackedScene" uid="uid://1mdfqqqf0ev4" path="res://level/przedmioty/c_baza.blend" id="4_xdmhe"]
 [ext_resource type="PackedScene" uid="uid://dt08dx5qq0htl" path="res://level/przedmioty/kolo.blend" id="5_oftn8"]
@@ -44,14 +45,9 @@ script = ExtResource("1_mut44")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4ycvo")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.62571, 0.278959)
-light_angular_distance = 20.0
-shadow_enabled = true
-
 [node name="Player" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.23823, 1, 0)
+transform = Transform3D(-4.31403e-08, -0.161122, 0.986935, -7.04285e-09, 0.986935, 0.161122, -1, 0, -4.37114e-08, 3.09197, 1.58222, 0)
 
 [node name="PlayerCamera" type="Camera3D" parent="Player"]
 unique_name_in_owner = true
@@ -66,6 +62,9 @@ collision_mask = 2
 [node name="Crosshair" type="Sprite3D" parent="Player/PlayerCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, -2.09548e-08, 0, -0.527056)
 texture = SubResource("PlaceholderTexture2D_qrqfl")
+
+[node name="reka" parent="Player/PlayerCamera" instance=ExtResource("3_un1ub")]
+transform = Transform3D(-0.938215, 0.288664, -0.190852, -0.0557565, 0.41821, 0.906637, 0.34153, 0.861262, -0.376276, 0.250113, -0.234487, -0.687102)
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true
@@ -120,7 +119,7 @@ script = ExtResource("3_3oh60")
 [node name="sciany" parent="RoomDesign" instance=ExtResource("17_nkmt6")]
 
 [node name="ClientSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 1.20156, 0)
 
 [node name="ClientSpawnPeriod" type="Timer" parent="ClientSpawn"]
 wait_time = 3.0
@@ -143,7 +142,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 [node name="WaitTime3" type="Timer" parent="ClientSpawn/Spot3"]
 wait_time = 12.0
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17204, 2.64406, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
+
 [connection signal="timeout" from="ClientSpawn/ClientSpawnPeriod" to="." method="_on_client_spawn_period_timeout"]
 [connection signal="timeout" from="ClientSpawn/Spot1/WaitTime1" to="." method="_on_wait_time_1_timeout"]
 [connection signal="timeout" from="ClientSpawn/Spot2/WaitTime2" to="." method="_on_wait_time_2_timeout"]
 [connection signal="timeout" from="ClientSpawn/Spot3/WaitTime3" to="." method="_on_wait_time_3_timeout"]
+
+[editable path="Player/PlayerCamera/reka"]

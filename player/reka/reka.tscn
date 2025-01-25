@@ -1,0 +1,20 @@
+[gd_scene load_steps=7 format=3 uid="uid://boygvmfdnncdo"]
+
+[ext_resource type="PackedScene" uid="uid://b5c570cuaq5d1" path="res://player/reka/reka.blend" id="1_wu3pe"]
+[ext_resource type="Texture2D" uid="uid://bxlow3nae7ryj" path="res://player/reka/textures/hand_BaseColor.png" id="2_x0gby"]
+[ext_resource type="Texture2D" uid="uid://7c7ypj6exlow" path="res://player/reka/textures/hand_Metallic.png" id="3_05nku"]
+[ext_resource type="Texture2D" uid="uid://dft78d857r3pu" path="res://player/reka/textures/hand_Normal.png" id="4_s3ubn"]
+[ext_resource type="Texture2D" uid="uid://cwqw37fgfv7k7" path="res://player/reka/textures/hand_Roughness.png" id="5_6n2cf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eql5g"]
+albedo_texture = ExtResource("2_x0gby")
+metallic_specular = 0.03
+metallic_texture = ExtResource("3_05nku")
+roughness_texture = ExtResource("5_6n2cf")
+normal_enabled = true
+normal_texture = ExtResource("4_s3ubn")
+
+[node name="reka" instance=ExtResource("1_wu3pe")]
+
+[node name="Arm" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_eql5g")
