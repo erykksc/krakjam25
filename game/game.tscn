@@ -42,9 +42,12 @@ environment = SubResource("Environment_4ycvo")
 transform = Transform3D(1, 0, 0, 0, 0.786137, 0.618052, 0, -0.618052, 0.786137, 0, 3.19671, 3.45541)
 shadow_enabled = true
 
+[node name="kubek" parent="." instance=ExtResource("4_1geip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.697837, 1.28343, 0)
+
 [node name="Player" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48373, 1.49007)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48373, 2.09763)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 current = true
@@ -53,7 +56,7 @@ script = ExtResource("2_s41xm")
 [node name="RayCast3D" type="RayCast3D" parent="Player/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -100, 0)
-collision_mask = 3
+collision_mask = 2
 
 [node name="Crosshair" type="Sprite3D" parent="Player/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, -1)
@@ -76,6 +79,3 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="kubek" parent="." instance=ExtResource("4_1geip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.697837, 1.28343, 0)

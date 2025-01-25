@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://n6gl1rx7yjw6"]
+
+[ext_resource type="Script" path="res://skillcheck/skillcheck.gd" id="1_cup30"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6on6v"]
+size = Vector2(20, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1v3fk"]
+size = Vector3(0.2, 1, 0.02)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qabbb"]
+size = Vector2(20, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4jrr4"]
+size = Vector3(0.2, 2, 3)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8x4rk"]
+size = Vector2(20, 1000)
+
+[node name="skillcheck" type="Node3D"]
+script = ExtResource("1_cup30")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.61883e-05, 1.19209e-07, 10.0025)
+
+[node name="playerbar" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9204)
+collision_layer = 128
+collision_mask = 64
+
+[node name="Sprite3D" type="Sprite3D" parent="playerbar"]
+texture = SubResource("PlaceholderTexture2D_6on6v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="playerbar"]
+shape = SubResource("BoxShape3D_1v3fk")
+
+[node name="aibar" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.26191)
+collision_layer = 64
+collision_mask = 128
+
+[node name="Sprite3D2" type="Sprite3D" parent="aibar"]
+modulate = Color(0, 1, 1, 1)
+texture = SubResource("PlaceholderTexture2D_qabbb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="aibar"]
+shape = SubResource("BoxShape3D_4jrr4")
+
+[node name="background" type="Sprite3D" parent="."]
+modulate = Color(0.73411, 0.92152, 0, 1)
+texture = SubResource("PlaceholderTexture2D_8x4rk")
+
+[connection signal="area_entered" from="playerbar" to="." method="_on_playerbar_area_entered"]
+[connection signal="area_exited" from="playerbar" to="." method="_on_playerbar_area_exited"]

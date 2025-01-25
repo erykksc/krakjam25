@@ -77,18 +77,14 @@ func highlight() -> void:
 			var mesh: MeshInstance3D = colidingObject.get_node("MeshInstance3D")
 			
 			if mesh != last_highlighted_mesh:
-				# Reset the previous mesh to its original material
 				if last_highlighted_mesh and original_material_overlay:
 					last_highlighted_mesh.material_overlay = original_material_overlay
 				
-				# Store the current mesh's original material
 				original_material_overlay = mesh.material_overlay
 				last_highlighted_mesh = mesh
 				
-				# Apply the highlight material
 				mesh.material_overlay = preload("res://shaders/outline_white.tres")
 	else:
-		# Reset the last highlighted mesh when no collision
 		if last_highlighted_mesh and original_material_overlay:
 			last_highlighted_mesh.material_overlay = original_material_overlay
 			last_highlighted_mesh = null
