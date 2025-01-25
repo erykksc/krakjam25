@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://player/player.gd" id="2_nox8s"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
 [ext_resource type="Script" path="res://room/room.gd" id="3_3oh60"]
-[ext_resource type="PackedScene" uid="uid://boygvmfdnncdo" path="res://player/reka/reka.tscn" id="3_un1ub"]
 [ext_resource type="PackedScene" uid="uid://dlpyhx5xkt2mo" path="res://level/przedmioty/cz_smak.blend" id="3_ybcfq"]
+[ext_resource type="PackedScene" uid="uid://5otiaekn0mr" path="res://player/hand/hand.glb" id="4_n0qlv"]
 [ext_resource type="PackedScene" uid="uid://1mdfqqqf0ev4" path="res://level/przedmioty/c_baza.blend" id="4_xdmhe"]
 [ext_resource type="PackedScene" uid="uid://dt08dx5qq0htl" path="res://level/przedmioty/kolo.blend" id="5_oftn8"]
 [ext_resource type="PackedScene" uid="uid://6gn7eh8nxhjw" path="res://level/przedmioty/kubki.blend" id="6_rdf3r"]
@@ -66,8 +66,8 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, -2.09548e-08, 0, -0.527056)
 texture = SubResource("PlaceholderTexture2D_qrqfl")
 
-[node name="reka" parent="Player/PlayerCamera" instance=ExtResource("3_un1ub")]
-transform = Transform3D(-0.938215, 0.288664, -0.190852, -0.0557565, 0.41821, 0.906637, 0.34153, 0.861262, -0.376276, 0.250113, -0.234487, -0.687102)
+[node name="hand" parent="Player/PlayerCamera" instance=ExtResource("4_n0qlv")]
+transform = Transform3D(-1, 2.66458e-15, -8.74228e-08, 1.77636e-15, 1, 2.09647e-21, 8.74227e-08, -6.01763e-22, -1, 0.106966, -0.0585601, -0.0920992)
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true
@@ -142,5 +142,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17204, 2.64406, 0)
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
 
-[editable path="Player/PlayerCamera/reka"]
 [editable path="RoomInteractable/kolo"]
