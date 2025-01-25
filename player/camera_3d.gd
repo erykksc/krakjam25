@@ -1,3 +1,4 @@
+class_name PlayerCamera
 extends Camera3D
 
 @onready var player: Node3D = get_parent()
@@ -6,8 +7,8 @@ extends Camera3D
 ## Increase this value to give a slower turn speed
 @export var CAMERA_TURN_SPEED:float = 200
 
-@export var period:float = 0.3
-@export var magnitude:float = 0.2
+@export var shake_period:float = 0.3
+@export var shake_magnitude:float = 0.05
 
 var last_highlighted_mesh: MeshInstance3D = null
 var original_material_overlay: Material = null
@@ -72,6 +73,24 @@ func _leave_tree()->void:
 	Show the mouse when we leave
 	"""
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func shake() -> void:
+	var initial_transform:Transform3D = self.transform 
+	var elapsed_time:float = 0.0
+
+	while elapsed_time < shake_period:
+		var offset:Vector3 = Vector3(
+			randf_range(-shake_magnitude, shake_magnitude),
+			randf_range(-shake_magnitude, shake_magnitude),
+			0.0
+		)
+
+		self.transform.origin = initial_transform.origin + offset
+		elapsed_time += get_process_delta_time()
+		await get_tree().process_frame
+
+	self.transform = initial_transform
 
 func highlight() -> void:
 	if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("interactable"):
