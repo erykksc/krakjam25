@@ -2,8 +2,19 @@ extends Node3D
 
 @onready var ControlNode:Control = %Control
 @onready var TotalPoints:Label = %TotalPoints
+@onready var playerCamera: PlayerCamera = %PlayerCamera
+
 var pointLabel: PackedScene = preload("res://point-label/point-label.tscn")
 
+var points: int = 0:
+	set(value):
+		var new_points:int = value - points
+		spawn_point_label(new_points)
+		points = value
+		playerCamera.shake()
+		TotalPoints.text = str(points)
+	get:
+		return points
 
 # clients
 var instance1: Node3D
@@ -26,24 +37,10 @@ var client1: PackedScene = preload("res://clients/client_1.tscn")
 var client2: PackedScene = preload("res://clients/client_2.tscn")
 var client3: PackedScene = preload("res://clients/client_3.tscn")
 
-
-var points: int = 0:
-	set(value):
-		var new_points:int = value - points
-		spawn_point_label(new_points)
-		points = value
-		TotalPoints.text = str(points)
-	get:
-		return points
-
 func _ready() -> void :
 	TotalPoints.text = "0"
 	# TODO: main game loop
 	# spawn clients
-	
-		
-		
-		
 	# add timers on clients
 	# when timers go off -> minus points -> queue free client
 
@@ -89,7 +86,6 @@ func spawn_point_label(new_points: int)->void:
 	popup.scale = Vector2(0, 0)
 	tween.tween_property(popup, "scale", Vector2(1, 1), 0.2)
 	tween.tween_property(popup, "modulate:a", 0, 2)  # Fade out over 0.25 seconds
-
 	tween.tween_callback(Callable(popup, "queue_free"))
 	
 func spawning_client() -> void:
