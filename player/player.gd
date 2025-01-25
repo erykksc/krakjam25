@@ -20,6 +20,12 @@ var smooth_speed := 5.0
 # hands
 @onready var hand: Node3D = $PlayerCamera/hand
 @onready var hand_hamster: Node3D = $PlayerCamera/hand_hamster
+@onready var hand_middle: Marker3D = $PlayerCamera/hand/HandMiddle
+
+# kubek 
+var kubek_scene: PackedScene = preload("res://kubek/kubek.tscn")
+var kubek_in_hand: bool = false
+
 
 func _ready() -> void:
 	skillcheck.visible = false
@@ -27,18 +33,24 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		# skill check on hamster
-		if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("kulki"):
-			skillcheck.visible = true
-			progress_bar.visible = true
-			crosshair.visible = false
-			$PlayerCamera.movement_disabled = true
-		# TODO: add other interactions and remove this one
-		else:
-			start_squeezing_hamster()
-	if event.is_action_released("interact"):
-		stop_squeezing_hamster()
-
+		if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("interactable"):
+			if ray_cast_3d.get_collider().is_in_group("kubek") and kubek_in_hand == false:
+				var kubek = kubek_scene.instantiate()
+				kubek_in_hand = true
+				hand_middle.add_child(kubek)
+				kubek.scale = Vector3(0.5,0.5,0.5)
+				hand_middle.global_position = kubek.global_position
+				
+				
+			if ray_cast_3d.get_collider().is_in_group("kulki"):
+				skillcheck.visible = true
+				progress_bar.visible = true
+				crosshair.visible = false
+				$PlayerCamera.movement_disabled = true
+				start_squeezing_hamster()
+			
+		
+	
 func start_squeezing_hamster() -> void:
 	var animPlayer:AnimationPlayer = hand_hamster.get_node("AnimationPlayer")
 	animPlayer.current_animation = "squeeze"
@@ -46,31 +58,5 @@ func start_squeezing_hamster() -> void:
 	hand_hamster.visible = true
 	animPlayer.play()
 
-func stop_squeezing_hamster() -> void:
-	# No action is needed
-	if not hand_hamster.visible:
-		return
-	var animPlayer:AnimationPlayer = hand_hamster.get_node("AnimationPlayer")
-	hand_hamster.visible = false
-	hand.visible = true
-	animPlayer.stop()
 
-# TODO: fix the wobble on y coordinates
-# currently it doesn't work because player is rotated on the x axis and camera3d on the y axis
-# so the rotation_diff is not accurate
-func _process(delta:float)-> void:
-	var initial_rotation := skeleton.get_bone_pose_rotation(wrist_bone_idx).get_euler()
-
-	var rotation_diff := rotation - last_rotation
-
-	# Convert to rotation (-wobble to +wobble)
-	var target_rotation := initial_rotation + Vector3(
-		(rotation_diff.x) * wobble_strength,
-		0,
-		(-rotation_diff.y) * wobble_strength,
-	)
-
-	# Smooth interpolation
-	var wrist_rotation := initial_rotation.lerp(target_rotation, smooth_speed * delta)
-	skeleton.set_bone_pose_rotation(wrist_bone_idx, Quaternion.from_euler(wrist_rotation))
-	last_rotation = rotation
+	

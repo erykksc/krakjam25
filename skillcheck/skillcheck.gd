@@ -5,6 +5,9 @@ extends Node3D
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var skillcheck: Node3D = $"."
 @onready var crosshair: Sprite3D = $"../Crosshair"
+@onready var animation_player: AnimationPlayer = $"../hand_hamster/AnimationPlayer"
+@onready var hand_hamster: Node3D = $"../hand_hamster"
+@onready var hand: Node3D = $"../hand"
 
 var end: bool
 var bar: float 
@@ -55,6 +58,10 @@ func skill_check_end():
 		crosshair.visible = true
 		%PlayerCamera.movement_disabled = false
 		bar = 0
+		hand_hamster.visible = false
+		hand.visible = true
+		animation_player.stop()
+		
 		
 func _on_playerbar_area_entered(area: Area3D) -> void:
 	is_in_area = true

@@ -26,23 +26,20 @@ func look_updown_rotation(new_rotation:float = 0)->Vector3:
 	Returns a new Vector3 which contains only the x direction
 	We'll use this vector to compute the final 3D rotation later
 	"""
-	var toReturn:Vector3 = self.get_rotation() + Vector3(new_rotation, 0, 0)
-
-	##
-	## We don't want the player to be able to bend over backwards
-	## neither to be able to look under their arse.
-	## Here we'll clamp the vertical look to 90° up and down
-	toReturn.x = clamp(toReturn.x, PI / -2, PI / 2)
-
+	var toReturn = self.get_rotation() + Vector3(new_rotation, 0, 0)
+	toReturn.x = clamp(toReturn.x, -PI/2, PI/2)
 	return toReturn
-
+	
 func look_leftright_rotation(new_rotation:float = 0)->Vector3:
 	"""
 	Returns a new Vector3 which contains only the y direction
 	We'll use this vector to compute the final 3D rotation later
 	"""
-	return player.get_rotation() + Vector3(0, new_rotation, 0)
-
+	
+	var toReturn = player.get_rotation() + Vector3(0, new_rotation, 0)
+	toReturn.y = clamp(0, toReturn.y, PI)
+	return toReturn
+	
 func _input(event:InputEvent)->void:
 	"""
 	First person camera controls

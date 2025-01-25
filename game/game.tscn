@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=30 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_nox8s"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://n6gl1rx7yjw6" path="res://skillcheck/skillcheck.tscn" id="5_t8kic"]
 [ext_resource type="PackedScene" uid="uid://6gn7eh8nxhjw" path="res://level/przedmioty/kubki.blend" id="6_rdf3r"]
 [ext_resource type="PackedScene" uid="uid://ci1q7yemudxp3" path="res://level/przedmioty/lod.blend" id="7_rmppl"]
+[ext_resource type="PackedScene" uid="uid://1tvr7onwuf7l" path="res://level/przedmioty/podkladka.tscn" id="8_gsevy"]
 [ext_resource type="PackedScene" uid="uid://gfd6ki04ofa4" path="res://level/przedmioty/cz_smak.glb" id="11_4b0us"]
 [ext_resource type="PackedScene" uid="uid://d0x36b11s7w84" path="res://level/przedmioty/smietnik.blend" id="11_phkis"]
 [ext_resource type="PackedScene" uid="uid://qjdw7o6su2qa" path="res://level/przedmioty/c_baza.glb" id="12_nddup"]
@@ -69,11 +70,27 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, -2.09548
 texture = SubResource("PlaceholderTexture2D_qrqfl")
 
 [node name="hand" parent="Player/PlayerCamera" instance=ExtResource("4_n0qlv")]
-transform = Transform3D(-1, 3.55274e-15, -1.50996e-07, -1.77636e-15, 1, 3.11283e-21, 1.50996e-07, -5.82352e-22, -1, 0.133235, -0.053552, -0.122779)
+transform = Transform3D(-0.442923, 0.895213, -0.0491253, 0.863672, 0.44074, 0.24458, 0.240603, 0.0659023, -0.968384, 0.219129, -0.0535526, -0.122778)
+
+[node name="HandMiddle" type="Marker3D" parent="Player/PlayerCamera/hand"]
+transform = Transform3D(0.513503, 0.856438, -0.0531968, -0.857014, 0.508774, -0.0817105, -0.0429148, 0.0875491, 0.995236, -0.00305855, -0.1063, 0.249087)
 
 [node name="hand_hamster" parent="Player/PlayerCamera" instance=ExtResource("5_i8408")]
-transform = Transform3D(1, 1.7349e-14, -2.4869e-14, 4.44091e-16, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.083, -0.02, -0.383)
+transform = Transform3D(0.830139, 0.0898346, -0.550272, -0.0898346, 0.99559, 0.0270108, 0.550272, 0.0270108, 0.834548, 0.273094, -0.0200007, -0.382999)
 visible = false
+
+[node name="Skeleton3D" parent="Player/PlayerCamera/hand_hamster/Armature" index="0"]
+bones/0/rotation = Quaternion(0.999365, -1.30468e-08, -9.31915e-10, 0.0356445)
+bones/2/rotation = Quaternion(0.00852192, 0.000212454, 0.0222171, 0.999717)
+bones/4/rotation = Quaternion(0.231989, 0.0003673, 0.00458014, 0.972708)
+bones/5/rotation = Quaternion(0.186633, -0.00793265, -0.0229519, 0.98213)
+bones/6/rotation = Quaternion(-0.0707415, -0.00239399, 0.0268842, 0.997129)
+bones/7/rotation = Quaternion(0.228193, 0.0419988, -0.00236943, 0.972707)
+bones/10/rotation = Quaternion(0.0818893, 0.0718463, -0.00329643, 0.994043)
+bones/12/rotation = Quaternion(0.0755872, 0.0131118, 0.215793, 0.973421)
+
+[node name="Skeleton3D" parent="Player/PlayerCamera/hand_hamster/Armature_001" index="0"]
+bones/11/rotation = Quaternion(0.894516, -0.0160695, -0.163026, -0.415939)
 
 [node name="skillcheck" parent="Player/PlayerCamera" instance=ExtResource("5_t8kic")]
 transform = Transform3D(0.1, 2.2205e-17, 0, 1.11024e-17, 0.1, -6.98824e-23, 0, -7.18235e-23, 0.1, 5.35753e-08, 0.200095, -1.22566)
@@ -98,11 +115,22 @@ label_settings = SubResource("LabelSettings_0m1y1")
 [node name="RoomInteractable" type="Node3D" parent="."]
 script = ExtResource("3_3oh60")
 
+[node name="podkladka1" parent="RoomInteractable" instance=ExtResource("8_gsevy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.345, 1.05, -0.15)
+
+[node name="podkladka2" parent="RoomInteractable" instance=ExtResource("8_gsevy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.345, 1.05, -0.7)
+
+[node name="podkladka3" parent="RoomInteractable" instance=ExtResource("8_gsevy")]
+transform = Transform3D(0.5, -3.93871e-06, -2.15678e-05, 3.94654e-06, 0.5, 0.000225831, 2.15663e-05, -0.000225831, 0.5, 1.345, 1.05, -1.236)
+
 [node name="kolo" parent="RoomInteractable" instance=ExtResource("5_oftn8")]
 
 [node name="StaticBody3D" parent="RoomInteractable/kolo/kolo" index="0" groups=["kulki"]]
 
 [node name="kubki" parent="RoomInteractable" instance=ExtResource("6_rdf3r")]
+
+[node name="StaticBody3D" parent="RoomInteractable/kubki/kubki" index="0" groups=["kubek"]]
 
 [node name="lod" parent="RoomInteractable" instance=ExtResource("7_rmppl")]
 
@@ -151,6 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17204, 2.64406, 0)
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
 
-[editable path="Player/PlayerCamera/reka"]
+[editable path="Player/PlayerCamera/hand_hamster"]
 [editable path="Player/PlayerCamera/skillcheck"]
 [editable path="RoomInteractable/kolo"]
+[editable path="RoomInteractable/kubki"]
