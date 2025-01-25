@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://clients/client.gd" id="1_rdd47"]
 [ext_resource type="PackedScene" uid="uid://q3rddldmxo4k" path="res://clients/puszek/puszek.glb" id="2_bfwai"]
 
-[node name="Client1" type="Node3D"]
+[node name="Puszek" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_rdd47")
 order_wait_time = null
 points_for_order = null
 
-[node name="puszek" parent="." instance=ExtResource("2_bfwai")]
+[node name="Model" parent="." instance=ExtResource("2_bfwai")]
