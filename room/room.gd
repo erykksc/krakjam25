@@ -3,9 +3,8 @@ extends Node3D
 @onready var room: Node3D = $"."
 
 func _ready() -> void:
-	for child: Node3D in room.get_children():
-		var body: MeshInstance3D = child.get_child(0)
-		var inner: StaticBody3D = body.get_child(0)
+	for body in room.find_children("", "MeshInstance3D", true):
+		var inner: StaticBody3D = body.get_node("StaticBody3D")
 		
 		body.material_overlay = preload("res://shaders/outline_black.tres")
 		
