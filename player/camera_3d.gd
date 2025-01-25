@@ -2,6 +2,7 @@ extends Camera3D
 
 @onready var player: Node3D = get_parent()
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
+
 ## Increase this value to give a slower turn speed
 @export var CAMERA_TURN_SPEED:float = 200
 
