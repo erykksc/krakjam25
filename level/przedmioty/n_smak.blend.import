@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bgpnq8imq2uqq"
-path="res://.godot/imported/shop.blend-212eae24562db28b6e8e1c7bd64caa23.scn"
+uid="uid://boybyh8kjjoug"
+path="res://.godot/imported/n_smak.blend-5662fd55269065d8babbb7a251819306.scn"
 
 [deps]
 
-source_file="res://level/shop.blend"
-dest_files=["res://.godot/imported/shop.blend-212eae24562db28b6e8e1c7bd64caa23.scn"]
+source_file="res://level/przedmioty/n_smak.blend"
+dest_files=["res://.godot/imported/n_smak.blend-5662fd55269065d8babbb7a251819306.scn"]
 
 [params]
 
