@@ -7,6 +7,8 @@ extends Node3D
 # added on _ready a node under which all clouds are spawned
 var clouds: Node3D
 
+var order: Array[String] = []
+
 const first_cloud_y_offset:float = 1.2
 const cloud_margin:float = 0.8
 
@@ -30,11 +32,26 @@ func _ready()->void:
 	add_child(orderTimer)
 	orderTimer.start()
 
-	var new_clouds_count := randi_range(1, 4)
-	for _i in new_clouds_count:
-		addCloud()
 
-func addCloud()->void:
+	# Create the order
+	var base := Ingredients.random_tea_base()
+	var worm := Ingredients.random_tea_worm()
+	order = [base, worm]
+
+	if randf() > 0.5:
+		order.append(Ingredients.ICE)
+
+	if randf() > 0.5:
+		order.append(Ingredients.LID)
+
+	print("client: ", self, " order: ", order)
+
+	# Add clouds to represent the order
+	for i in order.size():
+		var ingredient := order[i]
+		addCloud(ingredient)
+
+func addCloud(ingredient: String)->void:
 	var cloudInstance := CLOUD_SCENE.instantiate()
 	clouds.add_child(cloudInstance)
 	var cloudOff:float = first_cloud_y_offset+ cloud_margin*(clouds.get_children().size()-1)
