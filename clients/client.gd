@@ -7,7 +7,7 @@ extends Node3D
 # added on _ready a node under which all clouds are spawned
 var clouds: Node3D
 
-const first_cloud_y_offset:float = 1
+const first_cloud_y_offset:float = 1.2
 const cloud_margin:float = 0.8
 
 const CLOUD_SCENE := preload("res://cloud/cloud.tscn")
