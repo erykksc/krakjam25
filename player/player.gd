@@ -15,15 +15,43 @@ var wobble_strength := 1
 var smooth_speed := 5.0
 @onready var last_rotation := rotation
 
+# hands
+@onready var hand: Node3D = $PlayerCamera/hand
+@onready var hand_hamster: Node3D = $PlayerCamera/hand_hamster
+
 func _input(event: InputEvent) -> void:
-	if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("kulki"):
-		if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact"):
+		# skill check on hamster
+		if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("kulki"):
 			skillcheck_state = true
 			skillcheck_instance = SKILLCHECK.instantiate()
 			$PlayerCamera.add_child(skillcheck_instance)
 			skillcheck_instance.scale = Vector3(0.1, 0.1, 0.1)
 			skillcheck_instance.position = Vector3(0, 0.16, -0.975)
 			crosshair.visible = false
+		# TODO: add other interactions and remove this one
+		else:
+			start_squeezing_hamster()
+	if event.is_action_released("interact"):
+		stop_squeezing_hamster()
+		
+
+
+func start_squeezing_hamster() -> void:
+	var animPlayer:AnimationPlayer = hand_hamster.get_node("AnimationPlayer")
+	animPlayer.current_animation = "squeeze"
+	hand.visible = false
+	hand_hamster.visible = true
+	animPlayer.play()
+
+func stop_squeezing_hamster() -> void:
+	# No action is needed
+	if not hand_hamster.visible:
+		return
+	var animPlayer:AnimationPlayer = hand_hamster.get_node("AnimationPlayer")
+	hand_hamster.visible = false
+	hand.visible = true
+	animPlayer.stop()
 
 # TODO: fix the wobble on y coordinates
 # currently it doesn't work because player is rotated on the x axis and camera3d on the y axis
