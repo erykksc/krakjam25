@@ -1,13 +1,39 @@
 extends Node3D
 
 @onready var ControlNode:Control = %Control
+@onready var TotalPoints:Label = %TotalPoints
 var pointLabel: PackedScene = preload("res://point-label/point-label.tscn")
+
+var points: int = 0:
+    set(value):
+        var new_points:int = value - points
+        spawn_point_label(new_points)
+        points = value
+        TotalPoints.text = str(points)
+    get:
+        return points
+
+
+func _ready() -> void :
+    TotalPoints.text = "0"
+    # TODO: main game loop
+    # spawn clients
+    # add timers on clients
+    # when timers go off -> minus points -> queue free client
 
 func _input(event:InputEvent)->void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-        spawn_point_label("+100")
+        points+=100
 
-func spawn_point_label(text: String)->void:
+func spawn_point_label(new_points: int)->void:
+    var text: String = ""
+    if new_points < 0:
+        text += "-"
+    else:
+        text += "+"
+
+    text += str(new_points)
+
     var popup:Label = pointLabel.instantiate()
     popup.text = text
 

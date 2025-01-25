@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=13 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
@@ -31,6 +31,10 @@ shader_parameter/outline_width = 2.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_7r2d6"]
 size = Vector3(4, 1, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0m1y1"]
+font_size = 80
+font_color = Color(0.186609, 0, 0.978389, 1)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_mut44")
@@ -76,6 +80,16 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="TotalPoints" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 21.0
+offset_top = 20.0
+offset_right = 201.0
+offset_bottom = 89.0
+text = "POINTS"
+label_settings = SubResource("LabelSettings_0m1y1")
 
 [node name="kubek" parent="." instance=ExtResource("4_1geip")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.697837, 1.28343, 0)
