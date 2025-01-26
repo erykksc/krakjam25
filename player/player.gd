@@ -81,6 +81,8 @@ func _input(event: InputEvent) -> void:
 
 	if interactable == %zgrzewarka:
 		kubek_in_hand.add_ingredient(Ingredients.LID)
+		var animPlayer:AnimationPlayer = %zgrzewarka.find_child("AnimationPlayer", true, true)
+		animPlayer.play("zgrzewarka_test")
 	
 	if interactable == %smietnik:
 		kubek_in_hand.queue_free()
