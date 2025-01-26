@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=33 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_nox8s"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://hy44ea4w5yer" path="res://player/hand/hand.tscn" id="6_hgm64"]
 [ext_resource type="PackedScene" uid="uid://6gn7eh8nxhjw" path="res://level/przedmioty/kubki.blend" id="6_rdf3r"]
 [ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="7_4uhab"]
+[ext_resource type="AudioStream" uid="uid://du413a88srxs6" path="res://music/sad-hamster-violin-made-with-Voicemod.mp3" id="7_5ot1s"]
 [ext_resource type="PackedScene" uid="uid://ci1q7yemudxp3" path="res://level/przedmioty/lod.blend" id="7_rmppl"]
 [ext_resource type="PackedScene" uid="uid://1tvr7onwuf7l" path="res://level/przedmioty/podkladka.tscn" id="8_gsevy"]
+[ext_resource type="AudioStream" uid="uid://cswtqg4va4frg" path="res://music/cute-recruit-246084.mp3" id="8_pbrus"]
 [ext_resource type="PackedScene" uid="uid://gfd6ki04ofa4" path="res://level/przedmioty/cz_smak.glb" id="11_4b0us"]
 [ext_resource type="PackedScene" uid="uid://d0x36b11s7w84" path="res://level/przedmioty/smietnik.blend" id="11_phkis"]
 [ext_resource type="PackedScene" uid="uid://qjdw7o6su2qa" path="res://level/przedmioty/c_baza.glb" id="12_nddup"]
@@ -139,6 +141,13 @@ transform = Transform3D(-0.954058, 0.0938118, 0.284557, 0.00723742, 0.956659, -0
 
 [node name="HandMiddle" type="Marker3D" parent="Player/PlayerCamera/hand"]
 transform = Transform3D(1, 1.02445e-08, 2.98023e-08, -2.6077e-08, 1, -6.68806e-08, 4.47035e-08, -8.09086e-09, 1, 0.477694, -0.0508503, 0.427387)
+
+[node name="SadHamster" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("7_5ot1s")
+
+[node name="Cute-recruit-246084" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("8_pbrus")
+parameters/looping = true
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true

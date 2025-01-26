@@ -8,6 +8,10 @@ extends Node3D
 @onready var animation_player: AnimationPlayer = $"../hand_hamster/AnimationPlayer"
 @onready var hand_hamster: Node3D = $"../hand_hamster"
 @onready var hand: Node3D = $"../hand"
+@onready var sad_hamster: AudioStreamPlayer = $"../../SadHamster"
+@onready var cute_recruit_246084: AudioStreamPlayer = $"../../Cute-recruit-246084"
+@onready var ray_cast_3d: RayCast3D = $"../RayCast3D"
+
 
 var end: bool
 var bar: float 
@@ -16,6 +20,7 @@ var time_passed: float
 var current_random_value: float
 var aiIncrement: bool 
 var playerIncrement: bool
+
 
 func _physics_process(delta: float)-> void:
 	playerBar.position.y = clamp(playerBar.position.y, -3.5, 2.5)
@@ -46,13 +51,15 @@ func _input(event: InputEvent) -> void:
 		
 		
 func skill_check_end():
-	if is_in_area == true:
-		bar += 0.5
+	if skillcheck.visible == true:
+		if is_in_area == true:
+			bar += 0.5
 		
-	elif bar >= 0:
-		bar -= 0.25
-
+		elif bar >= 0:
+			bar -= 0.25
+		
 	if bar >= 100:
+		ray_cast_3d.enabled = true
 		skillcheck.visible = false
 		progress_bar.visible = false
 		crosshair.visible = true
@@ -61,7 +68,8 @@ func skill_check_end():
 		hand_hamster.visible = false
 		hand.visible = true
 		animation_player.stop()
-		
+		sad_hamster.stop()
+		cute_recruit_246084.set_volume_db(0)
 		
 func _on_playerbar_area_entered(area: Area3D) -> void:
 	is_in_area = true
