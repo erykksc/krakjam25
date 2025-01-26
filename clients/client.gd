@@ -40,19 +40,23 @@ func _ready()->void:
 	if randf() > 0.5:
 		order.append(Ingredients.ICE)
 
-	if randf() > 0.5:
-		order.append(Ingredients.LID)
+	# There is always a lid in boba
+	order.append(Ingredients.LID)
 
 	print("client: ", self, " order: ", order)
 
 	# Add clouds to represent the order
 	for i in order.size():
 		var ingredient := order[i]
+		if ingredient == Ingredients.LID:
+			continue
 		addCloud(ingredient)
 
 func addCloud(ingredient: String)->void:
-	var cloudInstance := CLOUD_SCENE.instantiate()
+	var cloudInstance:Cloud = CLOUD_SCENE.instantiate()
 	clouds.add_child(cloudInstance)
+	cloudInstance.set_ingredient(ingredient)
+
 	var cloudOff:float = first_cloud_y_offset+ cloud_margin*(clouds.get_children().size()-1)
 	cloudInstance.position += Vector3(0,cloudOff,0)
 
