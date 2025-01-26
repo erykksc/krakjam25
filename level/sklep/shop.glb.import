@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bxxoq7n7p0yid"
-path="res://.godot/imported/sciany.glb-8f364520d217a497b961964a81b168c2.scn"
+uid="uid://d08e1tk7bt5iv"
+path="res://.godot/imported/shop.glb-01c123911f9bd25da6b7c4bb3c1c604e.scn"
 
 [deps]
 
-source_file="res://level/sklep/sciany.glb"
-dest_files=["res://.godot/imported/sciany.glb-8f364520d217a497b961964a81b168c2.scn"]
+source_file="res://level/sklep/shop.glb"
+dest_files=["res://.godot/imported/shop.glb-01c123911f9bd25da6b7c4bb3c1c604e.scn"]
 
 [params]
 

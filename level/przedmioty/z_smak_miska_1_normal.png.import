@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://capwp4ovbl0xq"
+uid="uid://uxxshokt43rc"
 path.s3tc="res://.godot/imported/z_smak_miska_1_normal.png-845116989c04fd8058709225923cf9df.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -27,8 +27,8 @@ compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://level/przedmioty/z_smak_miska_1_normal.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

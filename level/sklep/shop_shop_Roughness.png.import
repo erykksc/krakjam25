@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bolmwmovd45i3"
-path.s3tc="res://.godot/imported/mozdzierz_mozdzierz_2_roughness.png-1cf8eb1b74991d4a7e4bb63cdc87f049.s3tc.ctex"
+uid="uid://t15us1f7sexe"
+path.s3tc="res://.godot/imported/shop_shop_Roughness.png-68f29dcb643d1b8d30cc59a70494aba7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://level/przedmioty/mozdzierz_mozdzierz_2_roughness.png"
-dest_files=["res://.godot/imported/mozdzierz_mozdzierz_2_roughness.png-1cf8eb1b74991d4a7e4bb63cdc87f049.s3tc.ctex"]
+source_file="res://level/sklep/shop_shop_Roughness.png"
+dest_files=["res://.godot/imported/shop_shop_Roughness.png-68f29dcb643d1b8d30cc59a70494aba7.s3tc.ctex"]
 
 [params]
 

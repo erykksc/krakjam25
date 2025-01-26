@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://wyd4t0l4xt2s"
-path="res://.godot/imported/mozdzierz.glb-0e06d2335f16d895054fdbeda4b4ebb6.scn"
+uid="uid://b3iel3pdhohdy"
+path="res://.godot/imported/kosz.glb-f949cc605af2802c7f0f17b63c275301.scn"
 
 [deps]
 
-source_file="res://level/przedmioty/mozdzierz.glb"
-dest_files=["res://.godot/imported/mozdzierz.glb-0e06d2335f16d895054fdbeda4b4ebb6.scn"]
+source_file="res://level/przedmioty/kosz.glb"
+dest_files=["res://.godot/imported/kosz.glb-f949cc605af2802c7f0f17b63c275301.scn"]
 
 [params]
 

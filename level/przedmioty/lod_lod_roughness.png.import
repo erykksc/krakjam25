@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckawkxlclsb8m"
-path.s3tc="res://.godot/imported/sciany_DefaultMaterial_BaseColor.png-0c57fa4d0ad44a33dcd2cb2d22862809.s3tc.ctex"
+uid="uid://d2t1s4pkv3o1g"
+path.s3tc="res://.godot/imported/lod_lod_roughness.png-fb42bdfdc037287200b1607a1b3e4261.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "0cde9bc50f3146e43f29a0b9b771e2b2"
+"md5": "a2c5cdd67a9f8c2473596cc7956d1045"
 }
 
 [deps]
 
-source_file="res://level/sklep/sciany_DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/sciany_DefaultMaterial_BaseColor.png-0c57fa4d0ad44a33dcd2cb2d22862809.s3tc.ctex"]
+source_file="res://level/przedmioty/lod_lod_roughness.png"
+dest_files=["res://.godot/imported/lod_lod_roughness.png-fb42bdfdc037287200b1607a1b3e4261.s3tc.ctex"]
 
 [params]
 

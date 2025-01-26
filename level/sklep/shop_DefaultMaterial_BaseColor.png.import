@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtcntlhd5ynfu"
-path.s3tc="res://.godot/imported/mozdzierz_mozdzierz_2_basecolor.png-751173365c0234ecf24af80355cba6ba.s3tc.ctex"
+uid="uid://cmblyw11b700t"
+path.s3tc="res://.godot/imported/shop_DefaultMaterial_BaseColor.png-1f1f99149b2411a12e283fda6af05ace.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "01b343f869154ee1466eaa15f443f5c3"
+"md5": "0cde9bc50f3146e43f29a0b9b771e2b2"
 }
 
 [deps]
 
-source_file="res://level/przedmioty/mozdzierz_mozdzierz_2_basecolor.png"
-dest_files=["res://.godot/imported/mozdzierz_mozdzierz_2_basecolor.png-751173365c0234ecf24af80355cba6ba.s3tc.ctex"]
+source_file="res://level/sklep/shop_DefaultMaterial_BaseColor.png"
+dest_files=["res://.godot/imported/shop_DefaultMaterial_BaseColor.png-1f1f99149b2411a12e283fda6af05ace.s3tc.ctex"]
 
 [params]
 

@@ -8,6 +8,8 @@ extends Node3D
 @onready var clientSpawn:ClientSpawn  = %ClientSpawn
 @onready var gameTimer:Timer  = Timer.new()
 
+@export var spawnClientEvery:float = 4.0
+
 const SECONDS_PER_SUCCESSFUL_ORDER := 20.0
 
 var pointLabel: PackedScene = preload("res://point-label/point-label.tscn")
@@ -33,7 +35,7 @@ func _ready() -> void :
 	# Try to spawn new clients every 4 second
 	var timer:Timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 4.0
+	timer.wait_time = spawnClientEvery
 	timer.timeout.connect(func()->void:
 		print("Spawning client: ", clientIdx)
 		clientIdx += 1
@@ -44,7 +46,7 @@ func _ready() -> void :
 	timer.start()
 	clientSpawn.spawn()
 
-	gameTimer.wait_time = 5.0
+	gameTimer.wait_time = 30.0
 	gameTimer.one_shot = true
 	add_child(gameTimer)
 	# on game finish/ended

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drvi6vc3j7us6"
-path.s3tc="res://.godot/imported/bar_DefaultMaterial_BaseColor.png-ee1aeb5cb3dd3e92df81f5ba4214ef57.s3tc.ctex"
+uid="uid://1anrusocrtoi"
+path.s3tc="res://.godot/imported/shop_lod_roughness.png-74852c49cc8fbe28bc6c6023ea26552b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5d62e22ab0db60e0ca411e3c8361e738"
+"md5": "26ef7e14f1b8f8b66e10dad2ab934a73"
 }
 
 [deps]
 
-source_file="res://level/sklep/bar_DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/bar_DefaultMaterial_BaseColor.png-ee1aeb5cb3dd3e92df81f5ba4214ef57.s3tc.ctex"]
+source_file="res://level/sklep/shop_lod_roughness.png"
+dest_files=["res://.godot/imported/shop_lod_roughness.png-74852c49cc8fbe28bc6c6023ea26552b.s3tc.ctex"]
 
 [params]
 

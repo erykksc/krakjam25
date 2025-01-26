@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fj27ftxxowp4"
-path.s3tc="res://.godot/imported/sciany_shop_Roughness.png-956ae9ce634f1bf76b90eb4e6caeecb3.s3tc.ctex"
+uid="uid://c81tqpcyqmhbj"
+path.s3tc="res://.godot/imported/shop_lod_basecolor.png-a150b0836ef5655000a4c81f6e4b90d5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "cb9b2c685d7a68affe65e76d190f63e7"
+"md5": "7ff976a1181be7bc07af90d57d2cb0be"
 }
 
 [deps]
 
-source_file="res://level/sklep/sciany_shop_Roughness.png"
-dest_files=["res://.godot/imported/sciany_shop_Roughness.png-956ae9ce634f1bf76b90eb4e6caeecb3.s3tc.ctex"]
+source_file="res://level/sklep/shop_lod_basecolor.png"
+dest_files=["res://.godot/imported/shop_lod_basecolor.png-a150b0836ef5655000a4c81f6e4b90d5.s3tc.ctex"]
 
 [params]
 
