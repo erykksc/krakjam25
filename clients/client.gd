@@ -75,7 +75,7 @@ func submit_order(prepared_order:Array[String]) -> void:
 	prepared_order.sort()
 
 	if order.size() != prepared_order.size():
-		_on_wrong_order_submitted()
+		_on_wrong_order_submitted(prepared_order)
 		return
 	for i in order.size():
 		if order[i] != prepared_order[i]:
@@ -83,8 +83,8 @@ func submit_order(prepared_order:Array[String]) -> void:
 			return 
 	_on_correct_order_submitted()
 	
-func _on_wrong_order_submitted() -> void:
-	print("wrong order submitted")
+func _on_wrong_order_submitted(prepared_order:Array[String]) -> void:
+	print("wrong order submitted, wanted: ", order, " received: ", prepared_order)
 	queue_free()
 	game.points -= points_for_order
 
