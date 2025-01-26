@@ -19,6 +19,15 @@ const CLOUD_SCENE := preload("res://cloud/cloud.tscn")
 var orderTimer:= Timer.new()
 
 func _ready()->void:
+	# find AnimationPlayer
+	var animPlayer:AnimationPlayer=find_child("AnimationPlayer", true, true)
+	if animPlayer:
+		for anim_name:String in ["idle", "ArmatureAction"]:
+			if not animPlayer.has_animation(anim_name):
+				continue
+			animPlayer.get_animation(anim_name).loop_mode = Animation.LOOP_LINEAR
+			animPlayer.play(anim_name)
+
 	clouds = Node3D.new()
 	add_child(clouds)
 

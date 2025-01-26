@@ -6,10 +6,11 @@ extends Node3D
 @onready var spot_3: Marker3D = $Spot3
 
 var client1: PackedScene = preload("res://clients/puszek/puszek.tscn")
-var client2: PackedScene = preload("res://clients/client_2.tscn")
+var client2: PackedScene = preload("res://clients/galek/galek.tscn")
+var client3: PackedScene = preload("res://clients/glutek/glutek.tscn")
 
 @onready var spots: Array[Marker3D] = [spot_1, spot_2, spot_3]
-@onready var clientModels: Array[PackedScene] = [client1, client2]
+@onready var clientModels: Array[PackedScene] = [client1, client2, client3]
 
 func spawn() -> bool:
 	var model: PackedScene = clientModels.pick_random()

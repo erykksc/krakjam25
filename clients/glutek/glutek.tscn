@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://wj6kftqc308i"]
+
+[ext_resource type="Script" path="res://clients/client.gd" id="1_w86ls"]
+[ext_resource type="PackedScene" uid="uid://cm2ty3f1b1cfh" path="res://clients/glutek/glutek_idle.glb" id="2_onb47"]
+
+[node name="Glutek" type="Node3D"]
+script = ExtResource("1_w86ls")
+
+[node name="glutek_idle" parent="." instance=ExtResource("2_onb47")]

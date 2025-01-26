@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://t76j6pjpq7dy"]
+
+[ext_resource type="Script" path="res://clients/client.gd" id="1_5jpem"]
+[ext_resource type="PackedScene" uid="uid://d0jpgqgtxd6l0" path="res://clients/galek/galek_idle.glb" id="1_bbgav"]
+
+[node name="Galek" type="Node3D"]
+script = ExtResource("1_5jpem")
+
+[node name="galek_idle" parent="." instance=ExtResource("1_bbgav")]
