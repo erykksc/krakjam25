@@ -38,16 +38,18 @@ func _ready() -> void :
 	timer.start()
 
 func spawn_point_label(new_points: int)->void:
-	var text: String = ""
-	if new_points < 0:
-		text += "-"
-	else:
-		text += "+"
-
-	text += str(new_points)
-
 	var popup:Label = pointLabel.instantiate()
-	popup.text = text
+
+	if new_points < 0:
+		popup.text = "-" 
+		popup.label_settings.font_color = Color.RED
+
+	else:
+		popup.text = "+" 
+		popup.label_settings.font_color = Color.GREEN
+
+	popup.text += str(abs(new_points))
+
 
 	var min_x:float = get_viewport().size.x * 0.2
 	var max_x:float = get_viewport().size.x * 0.8
