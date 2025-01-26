@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://deh3b3ckc7jum"]
+
+[ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="1_h3mw7"]
+[ext_resource type="Script" path="res://highscore/highscore_view.gd" id="2_837d2"]
+
+[sub_resource type="Theme" id="Theme_3ofmj"]
+default_font = ExtResource("1_h3mw7")
+default_font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_ilsnv"]
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_8f7kt"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_soflk"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_p7tff"]
+font_size = 80
+
+[node name="HighScoreView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3ofmj")
+script = ExtResource("2_837d2")
+
+[node name="HighscoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 280.0
+offset_right = 1920.0
+offset_bottom = 381.0
+text = "Highscores"
+label_settings = SubResource("LabelSettings_ilsnv")
+horizontal_alignment = 1
+
+[node name="Highscores" type="Label" parent="."]
+layout_mode = 0
+offset_top = 394.0
+offset_right = 1920.0
+offset_bottom = 1074.0
+text = "Eryk: 2000
+Julia: 1900
+Kuba: 1890
+Natalia: 1899
+Ola: 1898"
+label_settings = SubResource("LabelSettings_8f7kt")
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -9
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.221302, 0.221302, 0.221302, 1)
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 1919.0
+offset_bottom = 201.0
+text = "3000
+"
+label_settings = SubResource("LabelSettings_soflk")
+horizontal_alignment = 1
+
+[node name="YourScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your Score"
+label_settings = SubResource("LabelSettings_p7tff")
+horizontal_alignment = 1
