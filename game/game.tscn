@@ -5,7 +5,6 @@
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="2_s41xm"]
 [ext_resource type="Script" path="res://room/room.gd" id="3_3oh60"]
 [ext_resource type="PackedScene" uid="uid://e24nibx5r303" path="res://player/hand_hamster/hand_hamster.glb" id="5_i8408"]
-[ext_resource type="PackedScene" uid="uid://dt08dx5qq0htl" path="res://level/przedmioty/kolo.blend" id="5_oftn8"]
 [ext_resource type="PackedScene" uid="uid://n6gl1rx7yjw6" path="res://skillcheck/skillcheck.tscn" id="5_t8kic"]
 [ext_resource type="PackedScene" uid="uid://hy44ea4w5yer" path="res://player/hand/hand.tscn" id="6_hgm64"]
 [ext_resource type="PackedScene" uid="uid://6gn7eh8nxhjw" path="res://level/przedmioty/kubki.blend" id="6_rdf3r"]
@@ -22,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cctllv22bhpq1" path="res://level/przedmioty/zgrzewarka.glb" id="18_ur8aw"]
 [ext_resource type="Script" path="res://client_spawn/client_spawn.gd" id="19_6dlb4"]
 [ext_resource type="PackedScene" uid="uid://ctlvildfyxluw" path="res://level/sklep/bar.glb" id="20_cfrh2"]
+[ext_resource type="PackedScene" uid="uid://cbeuayh84v5tj" path="res://level/przedmioty/kolo.glb" id="20_gghhn"]
 [ext_resource type="PackedScene" uid="uid://bi2vtw3x7fwtm" path="res://level/sklep/lada.glb" id="22_lx0fd"]
 [ext_resource type="PackedScene" uid="uid://bxxoq7n7p0yid" path="res://level/sklep/sciany.glb" id="23_d5k5m"]
 [ext_resource type="PackedScene" uid="uid://djerb44die0g1" path="res://level/sklep/sufit.glb" id="24_2hley"]
@@ -172,9 +172,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.345, 1.05, -0.7)
 unique_name_in_owner = true
 transform = Transform3D(0.5, -3.93871e-06, -2.15678e-05, 3.94654e-06, 0.5, 0.000225831, 2.15663e-05, -0.000225831, 0.5, 1.345, 1.05, -1.236)
 
-[node name="kolo" parent="RoomInteractable" instance=ExtResource("5_oftn8")]
-unique_name_in_owner = true
-
 [node name="kubki" parent="RoomInteractable" instance=ExtResource("6_rdf3r")]
 unique_name_in_owner = true
 
@@ -204,6 +201,10 @@ unique_name_in_owner = true
 
 [node name="zgrzewarka" parent="RoomInteractable" instance=ExtResource("18_ur8aw")]
 unique_name_in_owner = true
+
+[node name="kolo" parent="RoomInteractable" instance=ExtResource("20_gghhn")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74478, 0.795388, -0.876006)
 
 [node name="RoomDesign" type="Node3D" parent="."]
 
