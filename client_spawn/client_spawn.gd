@@ -5,14 +5,13 @@ extends Node3D
 @onready var spot_2: Marker3D = $Spot2
 @onready var spot_3: Marker3D = $Spot3
 
-var client1: PackedScene = preload("res://clients/puszek/klient_puszek_idle.tscn")
+var client1: PackedScene = preload("res://clients/puszek/puszek.tscn")
 var client2: PackedScene = preload("res://clients/client_2.tscn")
-var client3: PackedScene = preload("res://clients/client_3.tscn")
 
 @onready var spots: Array[Marker3D] = [spot_1, spot_2, spot_3]
-@onready var clientModels: Array[PackedScene] = [client1, client2, client3]
+@onready var clientModels: Array[PackedScene] = [client1, client2]
 
-func spawn(onTimeout: Callable) -> bool:
+func spawn() -> bool:
 	var model: PackedScene = clientModels.pick_random()
 	
 	# find first free spot in the list
@@ -29,7 +28,6 @@ func spawn(onTimeout: Callable) -> bool:
 	var spot: Marker3D = spots[spotIdx]
 
 	var client:Client = model.instantiate()
-	client.on_order_timeout = func()->void: onTimeout.call()
 	spot.add_child(client)
 	client.global_position = spot.global_position
 

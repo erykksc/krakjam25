@@ -1,4 +1,3 @@
-class_name Globals
 extends Node
 
 const TeaBase = {
@@ -25,3 +24,16 @@ func random_tea_worm()->String:
 
 const ICE = "ice"
 const LID = "lid"
+
+const Labels = {
+	TeaBase.WHITE : preload("res://cloud/labels/m_baza.png"),
+	TeaBase.GREEN : preload("res://cloud/labels/z_baza.png"),
+	TeaBase.ORANGE : preload("res://cloud/labels/c_baza.png"),
+	# Tastes/smaki
+	TeaWorm.YELLOW : preload("res://cloud/labels/z_smak.png"),
+	TeaWorm.RED : preload("res://cloud/labels/cz_smak.png"),
+	TeaWorm.BLUE : preload("res://cloud/labels/n_smak.png"),
+	# Others/misc
+	ICE : preload("res://icon.svg"),
+
+}

@@ -1,8 +1,10 @@
 class_name Client
 extends Node3D
 
-@export var order_wait_time: float = 3.0
+@export var order_wait_time: float = 30.0
 @export var points_for_order: int = 100
+
+@onready var game:Game = get_tree().current_scene
 
 # added on _ready a node under which all clouds are spawned
 var clouds: Node3D
@@ -14,9 +16,6 @@ const cloud_margin:float = 0.8
 
 const CLOUD_SCENE := preload("res://cloud/cloud.tscn")
 
-# This variable should be set by the script spawning the client
-var on_order_timeout : Callable = func()->void: pass
-
 var orderTimer:= Timer.new()
 
 func _ready()->void:
@@ -26,8 +25,7 @@ func _ready()->void:
 	# start order timer
 	orderTimer.one_shot= true
 	orderTimer.timeout.connect(func()-> void:
-		queue_free()
-		on_order_timeout.call()
+		_on_order_wait_timeout()
 	)
 	orderTimer.wait_time = order_wait_time
 	add_child(orderTimer)
@@ -42,19 +40,23 @@ func _ready()->void:
 	if randf() > 0.5:
 		order.append(Ingredients.ICE)
 
-	if randf() > 0.5:
-		order.append(Ingredients.LID)
+	# There is always a lid in boba
+	order.append(Ingredients.LID)
 
 	print("client: ", self, " order: ", order)
 
 	# Add clouds to represent the order
 	for i in order.size():
 		var ingredient := order[i]
+		if ingredient == Ingredients.LID:
+			continue
 		addCloud(ingredient)
 
 func addCloud(ingredient: String)->void:
-	var cloudInstance := CLOUD_SCENE.instantiate()
+	var cloudInstance:Cloud = CLOUD_SCENE.instantiate()
 	clouds.add_child(cloudInstance)
+	cloudInstance.set_ingredient(ingredient)
+
 	var cloudOff:float = first_cloud_y_offset+ cloud_margin*(clouds.get_children().size()-1)
 	cloudInstance.position += Vector3(0,cloudOff,0)
 
@@ -74,11 +76,15 @@ func submit_order(prepared_order:Array[String]) -> void:
 	
 func _on_wrong_order_submitted() -> void:
 	print("wrong order submitted")
-	orderTimer.timeout.emit()
-	orderTimer.stop()
 	queue_free()
+	game.points -= points_for_order
 
 func _on_correct_order_submitted() -> void:
 	print("good order submitted")
-	orderTimer.stop()
 	queue_free()
+	game.points += points_for_order
+
+func _on_order_wait_timeout() -> void:
+	print("order wait timeout")
+	queue_free()
+	game.points -= points_for_order

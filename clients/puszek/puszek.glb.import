@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://jf62n233kpxd"
-path="res://.godot/imported/klient_puszek_idle.glb-4592deb74c28e7c87f51c404bd0c7f6f.scn"
+uid="uid://8ob1gvlwwqeu"
+path="res://.godot/imported/puszek.glb-c54787b1cad46f8ec291eabe642287f6.scn"
 
 [deps]
 
-source_file="res://clients/puszek/klient_puszek_idle.glb"
-dest_files=["res://.godot/imported/klient_puszek_idle.glb-4592deb74c28e7c87f51c404bd0c7f6f.scn"]
+source_file="res://clients/puszek/puszek.glb"
+dest_files=["res://.godot/imported/puszek.glb-c54787b1cad46f8ec291eabe642287f6.scn"]
 
 [params]
 

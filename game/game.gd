@@ -1,3 +1,4 @@
+class_name Game
 extends Node3D
 
 @onready var ControlNode:Control = %Control
@@ -30,29 +31,25 @@ func _ready() -> void :
 	timer.timeout.connect(func()->void:
 		print("Spawning client: ", clientIdx)
 		clientIdx += 1
-		var success:bool = clientSpawn.spawn(func()-> void:
-			print("client ", clientIdx,  " removed")
-		)
+		var success:bool = clientSpawn.spawn()
 		if not success:
 			push_warning("client ", clientIdx,  " failed to spawn")
 	)
 	timer.start()
 
-func _input(event:InputEvent)->void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		points+=100
-
 func spawn_point_label(new_points: int)->void:
-	var text: String = ""
-	if new_points < 0:
-		text += "-"
-	else:
-		text += "+"
-
-	text += str(new_points)
-
 	var popup:Label = pointLabel.instantiate()
-	popup.text = text
+
+	if new_points < 0:
+		popup.text = "-" 
+		popup.label_settings.font_color = Color.RED
+
+	else:
+		popup.text = "+" 
+		popup.label_settings.font_color = Color.GREEN
+
+	popup.text += str(abs(new_points))
+
 
 	var min_x:float = get_viewport().size.x * 0.2
 	var max_x:float = get_viewport().size.x * 0.8

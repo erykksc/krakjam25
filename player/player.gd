@@ -21,7 +21,7 @@ var smooth_speed := 5.0
 
 # kubek 
 var kubek_scene: PackedScene = preload("res://kubek/kubek.tscn")
-var kubek_in_hand: bool = false
+var kubek_in_hand: Kubek = null
 
 
 func _ready() -> void:
@@ -29,25 +29,81 @@ func _ready() -> void:
 	progress_bar.visible = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("interactable"):
-			if ray_cast_3d.get_collider().is_in_group("kubek") and kubek_in_hand == false:
-				print("kubek do reki")
-				
-				var kubek = kubek_scene.instantiate()
-				kubek_in_hand = true
-				hand_middle.add_child(kubek)
-				hand_middle.global_position = kubek.global_position
-				
-				
-			if ray_cast_3d.get_collider().is_in_group("kulki"):
-				skillcheck.visible = true
-				progress_bar.visible = true
-				crosshair.visible = false
-				$PlayerCamera.movement_disabled = true
-				start_squeezing_hamster()
-			
+	if not event.is_action_pressed("interact"):
+		return
+	if not ray_cast_3d.is_colliding():
+		return
+	if not ray_cast_3d.get_collider().is_in_group("interactable"):
+		return
+
+	var interactable: Node3D = ray_cast_3d.get_collider().owner
+
+	# Check if trying to reach for kubek
+	if interactable==%kubki and kubek_in_hand == null:
+		var kubek := kubek_scene.instantiate()
+		hand_middle.add_child(kubek)
+		kubek_in_hand = kubek
+		kubek.scale = Vector3(0.5,0.5,0.5)
+		hand_middle.global_position = kubek.global_position
 		
+	# Other ingredients require having a cup/kubek
+	if not kubek_in_hand:
+		return
+
+	# Check if interacting with hamster/kulki
+	if interactable == %kolo:
+		skillcheck.visible = true
+		progress_bar.visible = true
+		crosshair.visible = false
+		$PlayerCamera.movement_disabled = true
+		start_squeezing_hamster()
+
+	if interactable == %m_baza:
+		kubek_in_hand.add_ingredient(Ingredients.TeaBase.WHITE)
+
+	if interactable == %z_baza:
+		kubek_in_hand.add_ingredient(Ingredients.TeaBase.GREEN)
+
+	if interactable == %c_baza:
+		kubek_in_hand.add_ingredient(Ingredients.TeaBase.ORANGE)
+	
+	if interactable == %z_smak:
+		kubek_in_hand.add_ingredient(Ingredients.TeaWorm.YELLOW)
+
+	if interactable == %cz_smak:
+		kubek_in_hand.add_ingredient(Ingredients.TeaWorm.RED)
+
+	if interactable == %n_smak:
+		kubek_in_hand.add_ingredient(Ingredients.TeaWorm.BLUE)
+
+	if interactable == %lod:
+		kubek_in_hand.add_ingredient(Ingredients.ICE)
+
+	if interactable == %zgrzewarka:
+		kubek_in_hand.add_ingredient(Ingredients.LID)
+	
+	if interactable == %smietnik:
+		kubek_in_hand.queue_free()
+
+	if interactable == %podkladka1:
+		var client:Client = %Spot1.get_child(0)
+		if  client:
+			client.submit_order(kubek_in_hand.contents)
+			kubek_in_hand.queue_free()
+
+	if interactable == %podkladka2:
+		var client:Client = %Spot2.get_child(0)
+		if  client:
+			client.submit_order(kubek_in_hand.contents)
+			kubek_in_hand.queue_free()
+
+	if interactable == %podkladka3:
+		var client:Client = %Spot3.get_child(0)
+		if  client:
+			client.submit_order(kubek_in_hand.contents)
+			kubek_in_hand.queue_free()
+
+	print("now in kubek:", kubek_in_hand.contents)
 	
 func start_squeezing_hamster() -> void:
 	var animPlayer:AnimationPlayer = hand_hamster.get_node("AnimationPlayer")
@@ -55,6 +111,3 @@ func start_squeezing_hamster() -> void:
 	hand.visible = false
 	hand_hamster.visible = true
 	animPlayer.play()
-
-
-	

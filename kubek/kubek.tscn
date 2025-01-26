@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://deo1dfdm64v6h"]
+[gd_scene load_steps=13 format=3 uid="uid://deo1dfdm64v6h"]
 
 [ext_resource type="PackedScene" uid="uid://4bfbl8qvxyc2" path="res://kubek/czerwony.glb" id="1_2cq0k"]
 [ext_resource type="PackedScene" uid="uid://d12xl72csfme6" path="res://kubek/kubek.glb" id="1_h1gaq"]
+[ext_resource type="Script" path="res://kubek/kubek.gd" id="1_iv0pa"]
 [ext_resource type="PackedScene" uid="uid://dpaviu0yo8sq8" path="res://kubek/folia.glb" id="2_m3nme"]
 [ext_resource type="PackedScene" uid="uid://dt8qnxpaxl4cc" path="res://kubek/kulki.glb" id="4_5676d"]
 [ext_resource type="PackedScene" uid="uid://5hk1y55js0m7" path="res://kubek/lod.glb" id="5_mjqlg"]
@@ -37,6 +38,7 @@ clearcoat_enabled = true
 clearcoat_roughness = 0.3
 
 [node name="kubek" type="Node3D"]
+script = ExtResource("1_iv0pa")
 
 [node name="czerwony2" parent="." instance=ExtResource("1_2cq0k")]
 

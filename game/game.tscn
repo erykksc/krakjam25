@@ -9,12 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://n6gl1rx7yjw6" path="res://skillcheck/skillcheck.tscn" id="5_t8kic"]
 [ext_resource type="PackedScene" uid="uid://hy44ea4w5yer" path="res://player/hand/hand.tscn" id="6_hgm64"]
 [ext_resource type="PackedScene" uid="uid://6gn7eh8nxhjw" path="res://level/przedmioty/kubki.blend" id="6_rdf3r"]
+[ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="7_4uhab"]
 [ext_resource type="PackedScene" uid="uid://ci1q7yemudxp3" path="res://level/przedmioty/lod.blend" id="7_rmppl"]
 [ext_resource type="PackedScene" uid="uid://1tvr7onwuf7l" path="res://level/przedmioty/podkladka.tscn" id="8_gsevy"]
 [ext_resource type="PackedScene" uid="uid://gfd6ki04ofa4" path="res://level/przedmioty/cz_smak.glb" id="11_4b0us"]
 [ext_resource type="PackedScene" uid="uid://d0x36b11s7w84" path="res://level/przedmioty/smietnik.blend" id="11_phkis"]
 [ext_resource type="PackedScene" uid="uid://qjdw7o6su2qa" path="res://level/przedmioty/c_baza.glb" id="12_nddup"]
-[ext_resource type="PackedScene" uid="uid://wyd4t0l4xt2s" path="res://level/przedmioty/mozdzierz.glb" id="13_s2f2q"]
 [ext_resource type="PackedScene" uid="uid://c1l2aw7ie7uvf" path="res://level/przedmioty/m_baza.glb" id="14_6el7s"]
 [ext_resource type="PackedScene" uid="uid://psyggt0lg7rp" path="res://level/przedmioty/n_smak.glb" id="15_4scvh"]
 [ext_resource type="PackedScene" uid="uid://7r0wemx8neyv" path="res://level/przedmioty/z_baza.glb" id="17_me2lp"]
@@ -42,6 +42,7 @@ glow_enabled = true
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qrqfl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0m1y1"]
+font = ExtResource("7_4uhab")
 font_size = 80
 font_color = Color(0.186609, 0, 0.978389, 1)
 
@@ -160,41 +161,49 @@ label_settings = SubResource("LabelSettings_0m1y1")
 script = ExtResource("3_3oh60")
 
 [node name="podkladka1" parent="RoomInteractable" instance=ExtResource("8_gsevy")]
+unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.345, 1.05, -0.15)
 
 [node name="podkladka2" parent="RoomInteractable" instance=ExtResource("8_gsevy")]
+unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.345, 1.05, -0.7)
 
 [node name="podkladka3" parent="RoomInteractable" instance=ExtResource("8_gsevy")]
+unique_name_in_owner = true
 transform = Transform3D(0.5, -3.93871e-06, -2.15678e-05, 3.94654e-06, 0.5, 0.000225831, 2.15663e-05, -0.000225831, 0.5, 1.345, 1.05, -1.236)
 
 [node name="kolo" parent="RoomInteractable" instance=ExtResource("5_oftn8")]
-
-[node name="StaticBody3D" parent="RoomInteractable/kolo/kolo" index="0" groups=["interactable", "kulki"]]
+unique_name_in_owner = true
 
 [node name="kubki" parent="RoomInteractable" instance=ExtResource("6_rdf3r")]
-
-[node name="StaticBody3D" parent="RoomInteractable/kubki/kubki" index="0" groups=["interactable", "kubek"]]
+unique_name_in_owner = true
 
 [node name="lod" parent="RoomInteractable" instance=ExtResource("7_rmppl")]
+unique_name_in_owner = true
 
 [node name="smietnik" parent="RoomInteractable" instance=ExtResource("11_phkis")]
+unique_name_in_owner = true
 
 [node name="cz_smak" parent="RoomInteractable" instance=ExtResource("11_4b0us")]
+unique_name_in_owner = true
 
 [node name="c_baza" parent="RoomInteractable" instance=ExtResource("12_nddup")]
-
-[node name="mozdzierz" parent="RoomInteractable" instance=ExtResource("13_s2f2q")]
+unique_name_in_owner = true
 
 [node name="m_baza" parent="RoomInteractable" instance=ExtResource("14_6el7s")]
+unique_name_in_owner = true
 
 [node name="n_smak" parent="RoomInteractable" instance=ExtResource("15_4scvh")]
+unique_name_in_owner = true
 
 [node name="z_baza" parent="RoomInteractable" instance=ExtResource("17_me2lp")]
+unique_name_in_owner = true
 
 [node name="z_smak" parent="RoomInteractable" instance=ExtResource("18_s45gn")]
+unique_name_in_owner = true
 
 [node name="zgrzewarka" parent="RoomInteractable" instance=ExtResource("18_ur8aw")]
+unique_name_in_owner = true
 
 [node name="RoomDesign" type="Node3D" parent="."]
 
@@ -212,12 +221,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406342, 0.828164, -0.554746
 script = ExtResource("19_6dlb4")
 
 [node name="Spot1" type="Marker3D" parent="ClientSpawn"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.373165)
 
 [node name="Spot2" type="Marker3D" parent="ClientSpawn"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.227767)
 
 [node name="Spot3" type="Marker3D" parent="ClientSpawn"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.711983)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -228,5 +240,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
 
 [editable path="Player/PlayerCamera/hand_hamster"]
 [editable path="Player/PlayerCamera/skillcheck"]
-[editable path="RoomInteractable/kolo"]
-[editable path="RoomInteractable/kubki"]
