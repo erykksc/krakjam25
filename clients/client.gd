@@ -40,7 +40,7 @@ func _ready() -> void:
 	# Create the order
 	var base := Ingredients.random_tea_base()
 	var worm := Ingredients.random_tea_worm()
-	order = [base, worm]
+	order = [Ingredients.TAPIOKA, base, worm]
 
 	if randf() > 0.5:
 		order.append(Ingredients.ICE)
@@ -51,8 +51,11 @@ func _ready() -> void:
 
 	# Add clouds to represent the order
 	for ingredient in order:
-		if ingredient != Ingredients.LID:
-			addCloud(ingredient)
+		if ingredient == Ingredients.LID:
+			continue
+		if ingredient == Ingredients.TAPIOKA:
+			continue
+		addCloud(ingredient)
 
 func addCloud(ingredient: String) -> void:
 	var cloudInstance: Cloud = CLOUD_SCENE.instantiate()

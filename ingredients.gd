@@ -1,5 +1,7 @@
 extends Node
 
+const TAPIOKA = "tapioka"
+
 const TeaBase = {
     WHITE = "base_white",
     GREEN = "base_green",

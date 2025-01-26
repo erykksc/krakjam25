@@ -72,6 +72,7 @@ func skill_check_end():
 		bubble_hitsound.play()
 		sad_hamster.stop()
 		cute_recruit_246084.set_volume_db(0)
+		%Player.kubek_in_hand.add_ingredient(Ingredients.TAPIOKA)
 		
 func _on_playerbar_area_entered(area: Area3D) -> void:
 	is_in_area = true
