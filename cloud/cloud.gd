@@ -17,10 +17,13 @@ func _process(delta:float)->void:
 
 func set_ingredient(ingredient: String) -> void:
 	var labelImg:CompressedTexture2D = Ingredients.Labels[ingredient]
+
+	# TODO: create this material inside Ingredients.gd
+	# in order not to create new material for every new cloud
 	var material := StandardMaterial3D.new()
 	material.albedo_texture = labelImg
-	material.uv1_scale = Vector3(1, 1, 1)
-	material.texture_repeat = true
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.flags_transparent = true
 
 	label.material_override = material
 	print("new label Img: ", labelImg)
