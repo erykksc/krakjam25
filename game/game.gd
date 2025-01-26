@@ -2,10 +2,11 @@ class_name Game
 extends Node3D
 
 @onready var ControlNode:Control = %Control
-@onready var TotalPoints:Label = %TotalPoints
-@onready var TimeLeft:Label = %TimeLeft
+@onready var TotalPoints: Label = %TotalPoints
 @onready var playerCamera: PlayerCamera = %PlayerCamera
 @onready var clientSpawn:ClientSpawn  = %ClientSpawn
+@onready var cute_recruit_246084: AudioStreamPlayer = $"Player/Cute-recruit-246084"
+@onready var TimeLeft:Label = %TimeLeft
 @onready var gameTimer:Timer  = Timer.new()
 
 @export var spawnClientEvery:float = 4.0
@@ -29,8 +30,9 @@ var points: int = 0:
 		return points
 
 func _ready() -> void :
+	cute_recruit_246084.play()
 	randomize() # randomizes the game seed
-	TotalPoints.text = "0"
+	%TotalPoints.text = "0"
 
 	# Try to spawn new clients every 4 second
 	var timer:Timer = Timer.new()

@@ -4,6 +4,8 @@ extends Node3D
 @onready var ray_cast_3d: RayCast3D = $PlayerCamera/RayCast3D
 @onready var skillcheck: Node3D = $PlayerCamera/skillcheck
 @onready var progress_bar: ProgressBar = $PlayerCamera/skillcheck/ProgressBar
+@onready var sad_hamster: AudioStreamPlayer = $SadHamster
+@onready var cute_recruit_246084: AudioStreamPlayer = $"Cute-recruit-246084"
 
 var SKILLCHECK: PackedScene = preload("res://skillcheck/skillcheck.tscn")
 var skillcheck_state: bool
@@ -43,7 +45,6 @@ func _input(event: InputEvent) -> void:
 		var kubek := kubek_scene.instantiate()
 		hand_middle.add_child(kubek)
 		kubek_in_hand = kubek
-		kubek.scale = Vector3(0.5,0.5,0.5)
 		hand_middle.global_position = kubek.global_position
 		
 	# Other ingredients require having a cup/kubek
@@ -52,11 +53,15 @@ func _input(event: InputEvent) -> void:
 
 	# Check if interacting with hamster/kulki
 	if interactable == %kolo:
+		ray_cast_3d.enabled = false
 		skillcheck.visible = true
 		progress_bar.visible = true
 		crosshair.visible = false
 		$PlayerCamera.movement_disabled = true
+		cute_recruit_246084.set_volume_db(-80)
+		sad_hamster.play()
 		start_squeezing_hamster()
+		
 
 	if interactable == %m_baza:
 		kubek_in_hand.add_ingredient(Ingredients.TeaBase.WHITE)

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dekteu50jkkao"]
+
+[ext_resource type="Script" path="res://menu/instrukcja.gd" id="1_gwlqp"]
+[ext_resource type="Texture2D" uid="uid://ck4e6rauaekwu" path="res://menu/instrukcja.png" id="1_um5sk"]
+[ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="2_77j0r"]
+[ext_resource type="StyleBox" uid="uid://dah823kextpoh" path="res://menu/new_style_box_texture.tres" id="4_kcp12"]
+
+[node name="instrukcja" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gwlqp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_um5sk")
+
+[node name="startButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1586.0
+offset_top = 114.0
+offset_right = 1750.0
+offset_bottom = 185.0
+theme_override_fonts/font = ExtResource("2_77j0r")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("4_kcp12")
+theme_override_styles/pressed = ExtResource("4_kcp12")
+theme_override_styles/normal = ExtResource("4_kcp12")
+text = "START"
+
+[connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]

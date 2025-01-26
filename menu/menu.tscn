@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv064rjyqyyf8"]
+[gd_scene load_steps=7 format=3 uid="uid://dv064rjyqyyf8"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_b8lf2"]
+[ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="2_ksauv"]
+[ext_resource type="StyleBox" path="res://menu/new_style_box_texture.tres" id="3_7w6jc"]
+[ext_resource type="Texture2D" uid="uid://c2alc22fvysvg" path="res://menu/logo.png" id="3_78bfo"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_xry7y"]
 device = -1
@@ -19,12 +22,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b8lf2")
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_78bfo")
+
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 1351.0
+offset_top = 452.0
+offset_right = 1607.0
+offset_bottom = 597.0
 scale = Vector2(1.22727, 0.984375)
+theme_override_fonts/font = ExtResource("2_ksauv")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = ExtResource("3_7w6jc")
+theme_override_styles/pressed = ExtResource("3_7w6jc")
+theme_override_styles/normal = ExtResource("3_7w6jc")
 shortcut = SubResource("Shortcut_xfcwh")
 text = "PLAY"
 
