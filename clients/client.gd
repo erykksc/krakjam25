@@ -70,18 +70,26 @@ func addCloud(ingredient: String)->void:
 	cloudInstance.position += Vector3(0,cloudOff,0)
 
 ## WARNING: side effects, prepared_order is sorted
-func submit_order(prepared_order:Array[String]) -> void:
+func submit_order(kubek:Kubek) -> void:
 	order.sort()
-	prepared_order.sort()
+	kubek.contents.sort()
 
-	if order.size() != prepared_order.size():
-		_on_wrong_order_submitted(prepared_order)
+	# if doesn't have lid, don't accept the boba
+	if not kubek.contents.has(Ingredients.LID):
+		push_warning("submitted order doesn't have lid")
+		return
+
+	if order.size() != kubek.contents.size():
+		_on_wrong_order_submitted(kubek.contents)
+		kubek.queue_free()
 		return
 	for i in order.size():
-		if order[i] != prepared_order[i]:
+		if order[i] != kubek.contents[i]:
 			_on_correct_order_submitted()
+			kubek.queue_free()
 			return 
 	_on_correct_order_submitted()
+	kubek.queue_free()
 	
 func _on_wrong_order_submitted(prepared_order:Array[String]) -> void:
 	print("wrong order submitted, wanted: ", order, " received: ", prepared_order)

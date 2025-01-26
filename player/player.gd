@@ -90,20 +90,17 @@ func _input(event: InputEvent) -> void:
 	if interactable == %podkladka1:
 		var client:Client = %Spot1.get_child(0)
 		if  client:
-			client.submit_order(kubek_in_hand.contents)
-			kubek_in_hand.queue_free()
+			client.submit_order(kubek_in_hand)
 
 	if interactable == %podkladka2:
 		var client:Client = %Spot2.get_child(0)
 		if  client:
-			client.submit_order(kubek_in_hand.contents)
-			kubek_in_hand.queue_free()
+			client.submit_order(kubek_in_hand)
 
 	if interactable == %podkladka3:
 		var client:Client = %Spot3.get_child(0)
 		if  client:
-			client.submit_order(kubek_in_hand.contents)
-			kubek_in_hand.queue_free()
+			client.submit_order(kubek_in_hand)
 
 	print("now in kubek:", kubek_in_hand.contents)
 	
