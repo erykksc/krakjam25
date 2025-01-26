@@ -11,7 +11,7 @@ extends Node3D
 
 @export var spawnClientEvery:float = 4.0
 
-const SECONDS_PER_SUCCESSFUL_ORDER := 20.0
+const SECONDS_PER_SUCCESSFUL_ORDER := 25.0
 
 var pointLabel: PackedScene = preload("res://point-label/point-label.tscn")
 
@@ -26,6 +26,7 @@ var points: int = 0:
 		TotalPoints.text = str(points)
 		if new_points>0:
 			gameTimer.wait_time = gameTimer.time_left + SECONDS_PER_SUCCESSFUL_ORDER
+			gameTimer.start()
 	get:
 		return points
 
@@ -48,7 +49,7 @@ func _ready() -> void :
 	timer.start()
 	clientSpawn.spawn()
 
-	gameTimer.wait_time = 30.0
+	gameTimer.wait_time = 120.0
 	gameTimer.one_shot = true
 	add_child(gameTimer)
 	# on game finish/ended
