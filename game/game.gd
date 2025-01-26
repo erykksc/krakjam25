@@ -42,13 +42,15 @@ func _ready() -> void :
 			push_warning("client ", clientIdx,  " failed to spawn")
 	)
 	timer.start()
+	clientSpawn.spawn()
 
-	gameTimer.wait_time = 20.0
+	gameTimer.wait_time = 5.0
 	gameTimer.one_shot = true
 	add_child(gameTimer)
 	# on game finish/ended
 	gameTimer.timeout.connect(func()->void:
 		Globals.final_score = points
+		Globals.save_score(points)
 		get_tree().change_scene_to_file("res://highscore/highscore_view.tscn")
 	)
 	gameTimer.start()

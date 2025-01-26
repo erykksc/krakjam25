@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://deh3b3ckc7jum"]
+[gd_scene load_steps=10 format=3 uid="uid://deh3b3ckc7jum"]
 
 [ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="1_h3mw7"]
 [ext_resource type="Script" path="res://highscore/highscore_view.gd" id="2_837d2"]
@@ -18,6 +18,14 @@ font_size = 80
 
 [sub_resource type="LabelSettings" id="LabelSettings_p7tff"]
 font_size = 80
+
+[sub_resource type="InputEventKey" id="InputEventKey_1r26o"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_oyadg"]
+events = [SubResource("InputEventKey_1r26o")]
 
 [node name="HighScoreView" type="Control"]
 layout_mode = 3
@@ -81,3 +89,15 @@ grow_vertical = 2
 text = "Your Score"
 label_settings = SubResource("LabelSettings_p7tff")
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1537.0
+offset_top = 454.0
+offset_right = 1792.0
+offset_bottom = 525.0
+shortcut = SubResource("Shortcut_oyadg")
+text = "Continue"
+
+[connection signal="button_up" from="Button" to="." method="_on_continue_button_press"]
+[connection signal="pressed" from="Button" to="." method="_on_continue_button_press"]
