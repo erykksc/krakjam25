@@ -56,7 +56,7 @@ environment = SubResource("Environment_4ycvo")
 
 [node name="Player" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-4.31403e-08, -0.161122, 0.986935, -7.04285e-09, 0.986935, 0.161122, -1, 0, -4.37114e-08, 3.67292, 1.95545, 0)
+transform = Transform3D(-4.31403e-08, -0.161122, 0.986935, -7.04285e-09, 0.986935, 0.161122, -1, 0, -4.37114e-08, 2.693, 1.955, 0)
 script = ExtResource("2_nox8s")
 
 [node name="BubbleHitsound" type="AudioStreamPlayer" parent="Player"]
@@ -85,7 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, -2.09548
 texture = SubResource("PlaceholderTexture2D_qrqfl")
 
 [node name="hand_hamster" parent="Player/PlayerCamera" instance=ExtResource("5_i8408")]
-transform = Transform3D(0.830139, 0.0898346, -0.550272, -0.0898346, 0.99559, 0.0270108, 0.550272, 0.0270108, 0.834548, 0.273094, -0.0200007, -0.382999)
+transform = Transform3D(0.826036, -0.49895, 0.262132, 0.554912, 0.801394, -0.22325, -0.0986809, 0.329873, 0.938853, 0.261, -0.019, -0.412)
 visible = false
 
 [node name="Skeleton3D" parent="Player/PlayerCamera/hand_hamster/Armature" index="0"]
