@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp8gab6imbxg7"]
+[gd_scene load_steps=3 format=3 uid="uid://dp8gab6imbxg7"]
 
 [ext_resource type="PackedScene" uid="uid://dlj7s1qnftiws" path="res://kubek/kubek.glb" id="1_h1gaq"]
+[ext_resource type="Script" path="res://kubek/kubek.gd" id="2_11vdu"]
 
 [node name="kubek" instance=ExtResource("1_h1gaq")]
+script = ExtResource("2_11vdu")

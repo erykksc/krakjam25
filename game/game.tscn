@@ -118,41 +118,51 @@ label_settings = SubResource("LabelSettings_0m1y1")
 script = ExtResource("3_3oh60")
 
 [node name="podkladka1" parent="RoomInteractable" instance=ExtResource("8_gsevy")]
+unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.345, 1.05, -0.15)
 
 [node name="podkladka2" parent="RoomInteractable" instance=ExtResource("8_gsevy")]
+unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.345, 1.05, -0.7)
 
 [node name="podkladka3" parent="RoomInteractable" instance=ExtResource("8_gsevy")]
+unique_name_in_owner = true
 transform = Transform3D(0.5, -3.93871e-06, -2.15678e-05, 3.94654e-06, 0.5, 0.000225831, 2.15663e-05, -0.000225831, 0.5, 1.345, 1.05, -1.236)
 
 [node name="kolo" parent="RoomInteractable" instance=ExtResource("5_oftn8")]
-
-[node name="StaticBody3D" parent="RoomInteractable/kolo/kolo" index="0" groups=["kulki"]]
+unique_name_in_owner = true
 
 [node name="kubki" parent="RoomInteractable" instance=ExtResource("6_rdf3r")]
-
-[node name="StaticBody3D" parent="RoomInteractable/kubki/kubki" index="0" groups=["kubek"]]
+unique_name_in_owner = true
 
 [node name="lod" parent="RoomInteractable" instance=ExtResource("7_rmppl")]
+unique_name_in_owner = true
 
 [node name="smietnik" parent="RoomInteractable" instance=ExtResource("11_phkis")]
+unique_name_in_owner = true
 
 [node name="cz_smak" parent="RoomInteractable" instance=ExtResource("11_4b0us")]
+unique_name_in_owner = true
 
 [node name="c_baza" parent="RoomInteractable" instance=ExtResource("12_nddup")]
+unique_name_in_owner = true
 
 [node name="mozdzierz" parent="RoomInteractable" instance=ExtResource("13_s2f2q")]
 
 [node name="m_baza" parent="RoomInteractable" instance=ExtResource("14_6el7s")]
+unique_name_in_owner = true
 
 [node name="n_smak" parent="RoomInteractable" instance=ExtResource("15_4scvh")]
+unique_name_in_owner = true
 
 [node name="z_baza" parent="RoomInteractable" instance=ExtResource("17_me2lp")]
+unique_name_in_owner = true
 
 [node name="z_smak" parent="RoomInteractable" instance=ExtResource("18_s45gn")]
+unique_name_in_owner = true
 
 [node name="zgrzewarka" parent="RoomInteractable" instance=ExtResource("18_ur8aw")]
+unique_name_in_owner = true
 
 [node name="RoomDesign" type="Node3D" parent="."]
 
@@ -168,12 +178,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406342, 0.828164, -0.554746
 script = ExtResource("19_6dlb4")
 
 [node name="Spot1" type="Marker3D" parent="ClientSpawn"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.373165)
 
 [node name="Spot2" type="Marker3D" parent="ClientSpawn"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.227767)
 
 [node name="Spot3" type="Marker3D" parent="ClientSpawn"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.711983)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -184,5 +197,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
 
 [editable path="Player/PlayerCamera/hand_hamster"]
 [editable path="Player/PlayerCamera/skillcheck"]
-[editable path="RoomInteractable/kolo"]
-[editable path="RoomInteractable/kubki"]
