@@ -4,6 +4,8 @@ extends Node3D
 @export var order_wait_time: float = 3.0
 @export var points_for_order: int = 100
 
+@onready var game:Game = get_tree().current_scene
+
 # added on _ready a node under which all clouds are spawned
 var clouds: Node3D
 
@@ -77,8 +79,10 @@ func _on_wrong_order_submitted() -> void:
 	orderTimer.timeout.emit()
 	orderTimer.stop()
 	queue_free()
+	game.points -= points_for_order
 
 func _on_correct_order_submitted() -> void:
 	print("good order submitted")
 	orderTimer.stop()
 	queue_free()
+	game.points += points_for_order

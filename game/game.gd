@@ -1,3 +1,4 @@
+class_name Game
 extends Node3D
 
 @onready var ControlNode:Control = %Control
@@ -37,10 +38,6 @@ func _ready() -> void :
 			push_warning("client ", clientIdx,  " failed to spawn")
 	)
 	timer.start()
-
-func _input(event:InputEvent)->void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		points+=100
 
 func spawn_point_label(new_points: int)->void:
 	var text: String = ""
