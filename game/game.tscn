@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cskn7ay35s5c4"]
+[gd_scene load_steps=30 format=3 uid="uid://cskn7ay35s5c4"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_mut44"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_nox8s"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dt08dx5qq0htl" path="res://level/przedmioty/kolo.blend" id="5_oftn8"]
 [ext_resource type="PackedScene" uid="uid://n6gl1rx7yjw6" path="res://skillcheck/skillcheck.tscn" id="5_t8kic"]
 [ext_resource type="PackedScene" uid="uid://6gn7eh8nxhjw" path="res://level/przedmioty/kubki.blend" id="6_rdf3r"]
+[ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="7_4uhab"]
 [ext_resource type="PackedScene" uid="uid://ci1q7yemudxp3" path="res://level/przedmioty/lod.blend" id="7_rmppl"]
 [ext_resource type="PackedScene" uid="uid://1tvr7onwuf7l" path="res://level/przedmioty/podkladka.tscn" id="8_gsevy"]
 [ext_resource type="PackedScene" uid="uid://gfd6ki04ofa4" path="res://level/przedmioty/cz_smak.glb" id="11_4b0us"]
@@ -40,6 +41,7 @@ glow_enabled = true
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qrqfl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0m1y1"]
+font = ExtResource("7_4uhab")
 font_size = 80
 font_color = Color(0.186609, 0, 0.978389, 1)
 

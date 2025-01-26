@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bor67qmq6ix30"]
+[gd_scene load_steps=3 format=3 uid="uid://bor67qmq6ix30"]
+
+[ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="1_bq3eo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m8k58"]
+font = ExtResource("1_bq3eo")
 font_size = 45
 font_color = Color(0, 0.586282, 0.0785397, 1)
 
