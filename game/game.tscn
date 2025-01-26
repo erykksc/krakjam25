@@ -44,10 +44,9 @@ glow_enabled = true
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qrqfl"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_0m1y1"]
-font = ExtResource("7_4uhab")
-font_size = 80
-font_color = Color(0.186609, 0, 0.978389, 1)
+[sub_resource type="Theme" id="Theme_3v2ct"]
+default_font = ExtResource("7_4uhab")
+default_font_size = 80
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_mut44")
@@ -157,19 +156,34 @@ stream = ExtResource("9_c4y4k")
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3v2ct")
 
 [node name="TotalPoints" type="Label" parent="Control"]
 unique_name_in_owner = true
-layout_mode = 0
+layout_mode = 1
 offset_left = 21.0
 offset_top = 20.0
 offset_right = 201.0
 offset_bottom = 89.0
 text = "POINTS"
-label_settings = SubResource("LabelSettings_0m1y1")
+
+[node name="TimeLeft" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -199.0
+offset_top = 14.0
+offset_right = -23.0
+offset_bottom = 115.0
+grow_horizontal = 0
+text = "20.0"
 
 [node name="RoomInteractable" type="Node3D" parent="."]
 script = ExtResource("3_3oh60")

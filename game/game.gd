@@ -6,6 +6,10 @@ extends Node3D
 @onready var playerCamera: PlayerCamera = %PlayerCamera
 @onready var clientSpawn:ClientSpawn  = %ClientSpawn
 @onready var cute_recruit_246084: AudioStreamPlayer = $"Player/Cute-recruit-246084"
+@onready var TimeLeft:Label = %TimeLeft
+@onready var gameTimer:Timer  = Timer.new()
+
+const SECONDS_PER_SUCCESSFUL_ORDER := 20.0
 
 var pointLabel: PackedScene = preload("res://point-label/point-label.tscn")
 
@@ -18,6 +22,8 @@ var points: int = 0:
 		points = value
 		playerCamera.shake()
 		TotalPoints.text = str(points)
+		if new_points>0:
+			gameTimer.wait_time = gameTimer.time_left + SECONDS_PER_SUCCESSFUL_ORDER
 	get:
 		return points
 
@@ -26,10 +32,10 @@ func _ready() -> void :
 	randomize() # randomizes the game seed
 	%TotalPoints.text = "0"
 
-	# Try to spawn new clients every second
+	# Try to spawn new clients every 4 second
 	var timer:Timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 1.0
+	timer.wait_time = 4.0
 	timer.timeout.connect(func()->void:
 		print("Spawning client: ", clientIdx)
 		clientIdx += 1
@@ -38,6 +44,21 @@ func _ready() -> void :
 			push_warning("client ", clientIdx,  " failed to spawn")
 	)
 	timer.start()
+	clientSpawn.spawn()
+
+	gameTimer.wait_time = 5.0
+	gameTimer.one_shot = true
+	add_child(gameTimer)
+	# on game finish/ended
+	gameTimer.timeout.connect(func()->void:
+		Globals.final_score = points
+		Globals.save_score(points)
+		get_tree().change_scene_to_file("res://highscore/highscore_view.tscn")
+	)
+	gameTimer.start()
+
+func _process(_delta:float) -> void:
+	TimeLeft.text = "%.1f" % gameTimer.time_left
 
 func spawn_point_label(new_points: int)->void:
 	var popup:Label = pointLabel.instantiate()
