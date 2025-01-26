@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chdtrinm3m4um"
-path="res://.godot/imported/c_baza.png-c87e85e33c7453aa6b5debb5f8f24e54.ctex"
+uid="uid://damnhl7b7f5rr"
+path="res://.godot/imported/lod.png-e3cf68131e8d8a8f78b2c386103db7d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cloud/labels/c_baza.png"
-dest_files=["res://.godot/imported/c_baza.png-c87e85e33c7453aa6b5debb5f8f24e54.ctex"]
+source_file="res://cloud/labels/lod.png"
+dest_files=["res://.godot/imported/lod.png-e3cf68131e8d8a8f78b2c386103db7d6.ctex"]
 
 [params]
 

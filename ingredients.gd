@@ -34,6 +34,5 @@ const Labels = {
 	TeaWorm.RED : preload("res://cloud/labels/cz_smak.png"),
 	TeaWorm.BLUE : preload("res://cloud/labels/n_smak.png"),
 	# Others/misc
-	ICE : preload("res://icon.svg"),
-
+	ICE : preload("res://cloud/labels/lod.png"),
 }
