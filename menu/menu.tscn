@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv064rjyqyyf8"]
+[gd_scene load_steps=8 format=3 uid="uid://dv064rjyqyyf8"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_b8lf2"]
+[ext_resource type="Texture2D" uid="uid://ck4e6rauaekwu" path="res://menu/instrukcja.png" id="2_a7kka"]
 [ext_resource type="AudioStream" uid="uid://cswtqg4va4frg" path="res://music/cute-recruit-246084.mp3" id="2_e0nq3"]
+[ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="2_ksauv"]
+[ext_resource type="StyleBox" uid="uid://dah823kextpoh" path="res://menu/new_style_box_texture.tres" id="3_7w6jc"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_xry7y"]
 device = -1
@@ -20,19 +23,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b8lf2")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_a7kka")
+
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 624.0
-offset_top = 310.0
-offset_right = 873.0
-offset_bottom = 455.0
+offset_left = 1540.0
+offset_top = 73.0
+offset_right = 1796.0
+offset_bottom = 218.0
 scale = Vector2(1.22727, 0.984375)
+theme_override_fonts/font = ExtResource("2_ksauv")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = ExtResource("3_7w6jc")
+theme_override_styles/pressed = ExtResource("3_7w6jc")
+theme_override_styles/normal = ExtResource("3_7w6jc")
 shortcut = SubResource("Shortcut_xfcwh")
 text = "PLAY"
 
 [node name="Cute-recruit-246084" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_e0nq3")
-volume_db = -11.143
+volume_db = -11.0
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_button_pressed"]

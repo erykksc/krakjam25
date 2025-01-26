@@ -11,6 +11,7 @@ extends Node3D
 @onready var sad_hamster: AudioStreamPlayer = $"../../SadHamster"
 @onready var cute_recruit_246084: AudioStreamPlayer = $"../../Cute-recruit-246084"
 @onready var ray_cast_3d: RayCast3D = $"../RayCast3D"
+@onready var bubble_hitsound: AudioStreamPlayer = $"../../BubbleHitsound"
 
 
 var end: bool
@@ -68,6 +69,7 @@ func skill_check_end():
 		hand_hamster.visible = false
 		hand.visible = true
 		animation_player.stop()
+		bubble_hitsound.play()
 		sad_hamster.stop()
 		cute_recruit_246084.set_volume_db(0)
 		
