@@ -16,9 +16,6 @@ const cloud_margin:float = 0.8
 
 const CLOUD_SCENE := preload("res://cloud/cloud.tscn")
 
-# This variable should be set by the script spawning the client
-var on_order_timeout : Callable = func()->void: pass
-
 var orderTimer:= Timer.new()
 
 func _ready()->void:
@@ -28,8 +25,7 @@ func _ready()->void:
 	# start order timer
 	orderTimer.one_shot= true
 	orderTimer.timeout.connect(func()-> void:
-		queue_free()
-		on_order_timeout.call()
+		_on_order_wait_timeout()
 	)
 	orderTimer.wait_time = order_wait_time
 	add_child(orderTimer)
@@ -76,13 +72,15 @@ func submit_order(prepared_order:Array[String]) -> void:
 	
 func _on_wrong_order_submitted() -> void:
 	print("wrong order submitted")
-	orderTimer.timeout.emit()
-	orderTimer.stop()
 	queue_free()
 	game.points -= points_for_order
 
 func _on_correct_order_submitted() -> void:
 	print("good order submitted")
-	orderTimer.stop()
 	queue_free()
 	game.points += points_for_order
+
+func _on_order_wait_timeout() -> void:
+	print("order wait timeout")
+	queue_free()
+	game.points -= points_for_order

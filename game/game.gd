@@ -31,9 +31,7 @@ func _ready() -> void :
 	timer.timeout.connect(func()->void:
 		print("Spawning client: ", clientIdx)
 		clientIdx += 1
-		var success:bool = clientSpawn.spawn(func()-> void:
-			print("client ", clientIdx,  " removed")
-		)
+		var success:bool = clientSpawn.spawn()
 		if not success:
 			push_warning("client ", clientIdx,  " failed to spawn")
 	)
