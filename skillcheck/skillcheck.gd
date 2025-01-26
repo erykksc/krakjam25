@@ -18,8 +18,8 @@ var aiIncrement: bool
 var playerIncrement: bool
 
 func _physics_process(delta: float)-> void:
-	playerBar.position.y = clamp(playerBar.position.y, -3.5, 3)
-	aiBar.position.y = clamp(aiBar.position.y, -3.5, 3)
+	playerBar.position.y = clamp(playerBar.position.y, -3.5, 2.5)
+	aiBar.position.y = clamp(aiBar.position.y, -3.5, 2)
 	skill_check_end()
 	time_passed += delta
 	

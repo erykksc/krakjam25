@@ -9,9 +9,6 @@ var SKILLCHECK: PackedScene = preload("res://skillcheck/skillcheck.tscn")
 var skillcheck_state: bool
 var skillcheck_instance: Node3D
 
-# Hand skeleton
-@onready var skeleton: Skeleton3D = $PlayerCamera/hand/Armature/Skeleton3D
-@onready var wrist_bone_idx := skeleton.find_bone("przedramie")  # or your root bone name
 
 var wobble_strength := 1
 var smooth_speed := 5.0
@@ -35,10 +32,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if ray_cast_3d.is_colliding() and ray_cast_3d.get_collider().is_in_group("interactable"):
 			if ray_cast_3d.get_collider().is_in_group("kubek") and kubek_in_hand == false:
+				print("kubek do reki")
+				
 				var kubek = kubek_scene.instantiate()
 				kubek_in_hand = true
 				hand_middle.add_child(kubek)
-				kubek.scale = Vector3(0.5,0.5,0.5)
 				hand_middle.global_position = kubek.global_position
 				
 				

@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsgg4de1tov85"
+uid="uid://be85stcg6m17k"
 path.s3tc="res://.godot/imported/lada_lada_BaseColor.png-396887ac0d322635995bbcfd5a6c630c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "af73b60580849afdafb89c3e5dad8dfa"
+"md5": "ad5ac2bf2371088f1617381a79ccae8e"
 }
 
 [deps]
