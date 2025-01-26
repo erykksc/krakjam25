@@ -5,6 +5,9 @@ var final_score: int = 0
 const SAVE_FILE := "res://highscores.txt"
 
 func save_score(new_score: int)->void:
+	if not FileAccess.file_exists(SAVE_FILE):
+		var fileCreate := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+		fileCreate.close()
 	var file := FileAccess.open(SAVE_FILE, FileAccess.READ_WRITE)
 	file.seek_end()
 	file.store_line(str(new_score))
