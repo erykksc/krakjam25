@@ -1,7 +1,7 @@
 class_name Client
 extends Node3D
 
-@export var order_wait_time: float = 3.0
+@export var order_wait_time: float = 30.0
 @export var points_for_order: int = 100
 
 @onready var game:Game = get_tree().current_scene
