@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d12xl72csfme6"
-path="res://.godot/imported/kubek.glb-46f9e018abedce7f228ddb2d4fcf9be0.scn"
+uid="uid://cn2nrjd35mklk"
+path="res://.godot/imported/niebieski.glb-e47941204a8273ba0a7ec93fa376b42b.scn"
 
 [deps]
 
-source_file="res://kubek/kubek.glb"
-dest_files=["res://.godot/imported/kubek.glb-46f9e018abedce7f228ddb2d4fcf9be0.scn"]
+source_file="res://kubek/niebieski.glb"
+dest_files=["res://.godot/imported/niebieski.glb-e47941204a8273ba0a7ec93fa376b42b.scn"]
 
 [params]
 

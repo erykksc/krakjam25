@@ -81,16 +81,57 @@ visible = false
 
 [node name="Skeleton3D" parent="Player/PlayerCamera/hand_hamster/Armature" index="0"]
 bones/0/rotation = Quaternion(0.999365, -1.30468e-08, -9.31915e-10, 0.0356445)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.0529526, 0.00197499, -0.029331, 0.998164)
 bones/2/rotation = Quaternion(0.00852192, 0.000212454, 0.0222171, 0.999717)
+bones/3/rotation = Quaternion(0.00175274, -0.00209906, 0.11014, 0.993912)
 bones/4/rotation = Quaternion(0.231989, 0.0003673, 0.00458014, 0.972708)
 bones/5/rotation = Quaternion(0.186633, -0.00793265, -0.0229519, 0.98213)
+bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0707415, -0.00239399, 0.0268842, 0.997129)
 bones/7/rotation = Quaternion(0.228193, 0.0419988, -0.00236943, 0.972707)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.17693, 0.0145922, 0.0406843, 0.983274)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.00820887, -0.0111858, -0.0445334, 0.998912)
+bones/9/scale = Vector3(1, 1, 1)
 bones/10/rotation = Quaternion(0.0818893, 0.0718463, -0.00329643, 0.994043)
+bones/11/rotation = Quaternion(0.182844, 0.0198947, 0.123347, 0.975171)
+bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.0755872, 0.0131118, 0.215793, 0.973421)
+bones/15/rotation = Quaternion(0.135635, 0.0158292, -0.365833, 0.920608)
+bones/17/rotation = Quaternion(-0.169262, 0.181402, 0.229328, 0.941197)
+bones/17/scale = Vector3(1, 1, 1)
 
 [node name="Skeleton3D" parent="Player/PlayerCamera/hand_hamster/Armature_001" index="0"]
+bones/0/rotation = Quaternion(0.683586, -0.238298, -0.253224, 0.641718)
+bones/0/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(0.0172892, 1.47159e-06, -2.60809e-08, 0.999851)
+bones/4/rotation = Quaternion(0.0713204, -0.0145379, 0.0788343, 0.994227)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(-0.0794502, 0.0490794, 0.0927737, 0.991298)
+bones/7/rotation = Quaternion(0.613673, 0.313096, 0.264583, 0.674813)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0713215, 0.0145388, -0.0788346, 0.994227)
+bones/9/rotation = Quaternion(-0.0794506, -0.0490802, -0.0927743, 0.991298)
+bones/9/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.894516, -0.0160695, -0.163026, -0.415939)
+bones/12/rotation = Quaternion(-0.106001, 0.00629712, 0.00563993, 0.99433)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.275082, 0.224806, 0.82156, -0.445905)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.0522965, -0.0219849, -0.242856, 0.968402)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(-0.0724958, -0.00343661, 0.0660748, 0.995172)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-0.20543, -0.0252145, 0.107757, 0.972395)
+bones/17/rotation = Quaternion(-0.275082, 0.224806, 0.82156, 0.445905)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(-0.0522964, 0.021985, 0.242856, 0.968402)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.0810194, 0.00275726, -0.0545199, 0.995216)
+bones/20/rotation = Quaternion(-0.197779, 0.0280417, -0.128678, 0.97136)
+bones/20/scale = Vector3(1, 1, 1)
 
 [node name="skillcheck" parent="Player/PlayerCamera" instance=ExtResource("5_t8kic")]
 transform = Transform3D(0.1, 2.2205e-17, 0, 1.11024e-17, 0.1, -6.98824e-23, 0, -7.18235e-23, 0.1, 5.35753e-08, 0.200095, -1.22566)
@@ -126,11 +167,7 @@ transform = Transform3D(0.5, -3.93871e-06, -2.15678e-05, 3.94654e-06, 0.5, 0.000
 
 [node name="kolo" parent="RoomInteractable" instance=ExtResource("5_oftn8")]
 
-[node name="StaticBody3D" parent="RoomInteractable/kolo/kolo" index="0" groups=["kulki"]]
-
 [node name="kubki" parent="RoomInteractable" instance=ExtResource("6_rdf3r")]
-
-[node name="StaticBody3D" parent="RoomInteractable/kubki/kubki" index="0" groups=["kubek"]]
 
 [node name="lod" parent="RoomInteractable" instance=ExtResource("7_rmppl")]
 
@@ -181,5 +218,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77715, 2.64406, 0)
 
 [editable path="Player/PlayerCamera/hand_hamster"]
 [editable path="Player/PlayerCamera/skillcheck"]
-[editable path="RoomInteractable/kolo"]
-[editable path="RoomInteractable/kubki"]

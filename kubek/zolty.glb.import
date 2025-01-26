@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d12xl72csfme6"
-path="res://.godot/imported/kubek.glb-46f9e018abedce7f228ddb2d4fcf9be0.scn"
+uid="uid://bo6iwlkf8ebtv"
+path="res://.godot/imported/zolty.glb-14199963d22d6d81bbfa24d4c05bbf50.scn"
 
 [deps]
 
-source_file="res://kubek/kubek.glb"
-dest_files=["res://.godot/imported/kubek.glb-46f9e018abedce7f228ddb2d4fcf9be0.scn"]
+source_file="res://kubek/zolty.glb"
+dest_files=["res://.godot/imported/zolty.glb-14199963d22d6d81bbfa24d4c05bbf50.scn"]
 
 [params]
 

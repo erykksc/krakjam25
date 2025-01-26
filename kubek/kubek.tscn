@@ -1,5 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp8gab6imbxg7"]
+[gd_scene load_steps=9 format=3 uid="uid://deo1dfdm64v6h"]
 
-[ext_resource type="PackedScene" uid="uid://dlj7s1qnftiws" path="res://kubek/kubek.glb" id="1_h1gaq"]
+[ext_resource type="PackedScene" uid="uid://4bfbl8qvxyc2" path="res://kubek/czerwony.glb" id="1_2cq0k"]
+[ext_resource type="PackedScene" uid="uid://d12xl72csfme6" path="res://kubek/kubek.glb" id="1_h1gaq"]
+[ext_resource type="PackedScene" uid="uid://dpaviu0yo8sq8" path="res://kubek/folia.glb" id="2_m3nme"]
+[ext_resource type="PackedScene" uid="uid://dt8qnxpaxl4cc" path="res://kubek/kulki.glb" id="4_5676d"]
+[ext_resource type="PackedScene" uid="uid://5hk1y55js0m7" path="res://kubek/lod.glb" id="5_mjqlg"]
+[ext_resource type="PackedScene" uid="uid://cn2nrjd35mklk" path="res://kubek/niebieski.glb" id="6_e7s82"]
+[ext_resource type="PackedScene" uid="uid://bo6iwlkf8ebtv" path="res://kubek/zolty.glb" id="7_bjb2p"]
 
-[node name="kubek" instance=ExtResource("1_h1gaq")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou7m5"]
+transparency = 1
+blend_mode = 3
+cull_mode = 2
+clearcoat_enabled = true
+clearcoat_roughness = 0.34
+
+[node name="Node3D" type="Node3D"]
+
+[node name="czerwony2" parent="." instance=ExtResource("1_2cq0k")]
+visible = false
+
+[node name="folia2" parent="." instance=ExtResource("2_m3nme")]
+visible = false
+
+[node name="kubek2" parent="." instance=ExtResource("1_h1gaq")]
+
+[node name="kubek" parent="kubek2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ou7m5")
+
+[node name="kulki2" parent="." instance=ExtResource("4_5676d")]
+
+[node name="lod2" parent="." instance=ExtResource("5_mjqlg")]
+
+[node name="niebieski2" parent="." instance=ExtResource("6_e7s82")]
+visible = false
+
+[node name="zolty2" parent="." instance=ExtResource("7_bjb2p")]
+visible = false
+
+[editable path="kubek2"]
