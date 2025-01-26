@@ -20,6 +20,7 @@ var points: int = 0:
 		return points
 
 func _ready() -> void :
+	randomize() # randomizes the game seed
 	TotalPoints.text = "0"
 
 	# Try to spawn new clients every second

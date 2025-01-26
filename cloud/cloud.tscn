@@ -1,22 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7riesbsdvkn1"]
+[gd_scene load_steps=6 format=3 uid="uid://c7riesbsdvkn1"]
 
 [ext_resource type="Texture2D" uid="uid://b30k32vmyf1iw" path="res://icon.svg" id="1_3ysog"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_ckp2c"]
+[ext_resource type="Script" path="res://cloud/cloud.gd" id="1_a02rx"]
+[ext_resource type="PackedScene" uid="uid://cng8mj88xrw54" path="res://cloud/cloud.glb" id="3_n2abb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cj40y"]
 albedo_texture = ExtResource("1_3ysog")
 
 [sub_resource type="QuadMesh" id="QuadMesh_able0"]
 material = SubResource("StandardMaterial3D_cj40y")
-size = Vector2(0.5, 0.5)
+size = Vector2(0.3, 0.3)
 orientation = 0
 
 [node name="Cloud" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_ckp2c")
+script = ExtResource("1_a02rx")
 
 [node name="BobaLabel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19, 0, 0)
 mesh = SubResource("QuadMesh_able0")
+
+[node name="Model" parent="." instance=ExtResource("3_n2abb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
