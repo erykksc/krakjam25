@@ -77,6 +77,9 @@ func submit_order(kubek:Kubek) -> void:
 	# if doesn't have lid, don't accept the boba
 	if not kubek.contents.has(Ingredients.LID):
 		push_warning("submitted order doesn't have lid")
+		for cloud:Cloud in clouds.get_children():
+			cloud.flash_color(Color.RED)
+			
 		return
 
 	if order.size() != kubek.contents.size():
@@ -93,15 +96,24 @@ func submit_order(kubek:Kubek) -> void:
 	
 func _on_wrong_order_submitted(prepared_order:Array[String]) -> void:
 	print("wrong order submitted, wanted: ", order, " received: ", prepared_order)
-	queue_free()
+	for cloud:Cloud in clouds.get_children():
+		cloud.flash_color(Color.RED)
 	game.points -= points_for_order
+	await get_tree().create_timer(Cloud.COLOR_FLASH_DURATION).timeout
+	queue_free()
 
 func _on_correct_order_submitted() -> void:
 	print("good order submitted")
-	queue_free()
+	for cloud:Cloud in clouds.get_children():
+		cloud.flash_color(Color.GREEN)
 	game.points += points_for_order
+	await get_tree().create_timer(Cloud.COLOR_FLASH_DURATION).timeout
+	queue_free()
 
 func _on_order_wait_timeout() -> void:
 	print("order wait timeout")
-	queue_free()
+	for cloud:Cloud in clouds.get_children():
+		cloud.flash_color(Color.RED)
 	game.points -= points_for_order
+	await get_tree().create_timer(Cloud.COLOR_FLASH_DURATION).timeout
+	queue_free()
