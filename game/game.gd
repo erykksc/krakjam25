@@ -15,8 +15,6 @@ const SECONDS_PER_SUCCESSFUL_ORDER := 25.0
 
 var pointLabel: PackedScene = preload("res://point-label/point-label.tscn")
 
-var clientIdx:int = 0
-
 var points: int = 0:
 	set(value):
 		var new_points:int = value - points
@@ -40,11 +38,10 @@ func _ready() -> void :
 	add_child(timer)
 	timer.wait_time = spawnClientEvery
 	timer.timeout.connect(func()->void:
-		print("Spawning client: ", clientIdx)
-		clientIdx += 1
+		print("Attempting to spawn client")
 		var success:bool = clientSpawn.spawn()
 		if not success:
-			push_warning("client ", clientIdx,  " failed to spawn")
+			push_warning("Client failed to spawn")
 	)
 	timer.start()
 	clientSpawn.spawn()
