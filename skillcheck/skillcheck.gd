@@ -51,7 +51,7 @@ func _input(event: InputEvent) -> void:
 		playerIncrement = false
 		
 		
-func skill_check_end():
+func skill_check_end() -> void:
 	if skillcheck.visible == true:
 		if is_in_area == true:
 			bar += 0.5
@@ -74,9 +74,9 @@ func skill_check_end():
 		cute_recruit_246084.set_volume_db(0)
 		%Player.kubek_in_hand.add_ingredient(Ingredients.TAPIOKA)
 		
-func _on_playerbar_area_entered(area: Area3D) -> void:
+func _on_playerbar_area_entered(_area: Area3D) -> void:
 	is_in_area = true
 
-func _on_playerbar_area_exited(area: Area3D) -> void:
+func _on_playerbar_area_exited(_area: Area3D) -> void:
 	is_in_area = false
 	

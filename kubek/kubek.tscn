@@ -19,7 +19,7 @@ clearcoat_roughness = 0.3
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou7m5"]
 transparency = 1
 blend_mode = 1
-cull_mode = 2
+cull_mode = 1
 clearcoat_enabled = true
 clearcoat_roughness = 0.34
 
@@ -46,6 +46,7 @@ script = ExtResource("1_iv0pa")
 surface_material_override/0 = SubResource("StandardMaterial3D_yyit5")
 
 [node name="folia2" parent="." instance=ExtResource("2_m3nme")]
+visible = false
 
 [node name="kubek2" parent="." instance=ExtResource("1_h1gaq")]
 
@@ -53,30 +54,36 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yyit5")
 surface_material_override/0 = SubResource("StandardMaterial3D_ou7m5")
 
 [node name="kulki2" parent="." instance=ExtResource("4_5676d")]
+visible = false
 
 [node name="lod2" parent="." instance=ExtResource("5_mjqlg")]
 
 [node name="niebieski2" parent="." instance=ExtResource("6_e7s82")]
+visible = false
 
 [node name="niebieski" parent="niebieski2" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_7s0fm")
 
 [node name="zolty2" parent="." instance=ExtResource("7_bjb2p")]
+visible = false
 
 [node name="zolty" parent="zolty2" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
 
 [node name="mleko" parent="." instance=ExtResource("7_bjb2p")]
+visible = false
 
 [node name="zolty" parent="mleko" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
 
 [node name="zolty4" parent="." instance=ExtResource("7_bjb2p")]
+visible = false
 
 [node name="zolty" parent="zolty4" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
 
 [node name="zolty5" parent="." instance=ExtResource("7_bjb2p")]
+visible = false
 
 [node name="zolty" parent="zolty5" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")

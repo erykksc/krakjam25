@@ -4,7 +4,7 @@ extends Node3D
 @export var order_wait_time: float = 9999.0
 @export var points_for_order: int = 100
 var disapointed: AudioStreamMP3 = preload("res://music/i-am-very-disappointed-male-spoken-213232.mp3")
-var audio_player = AudioStreamPlayer.new()
+var audio_player := AudioStreamPlayer.new()
 @onready var game: Game = get_tree().current_scene
 
 var clouds: Node3D
