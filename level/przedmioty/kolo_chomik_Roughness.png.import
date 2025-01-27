@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://djnlrvliqyhby"
 path.s3tc="res://.godot/imported/kolo_chomik_Roughness.png-cf4eaa19981ae9a62d68d289648bb83b.s3tc.ctex"
+path.etc2="res://.godot/imported/kolo_chomik_Roughness.png-cf4eaa19981ae9a62d68d289648bb83b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://level/przedmioty/kolo_chomik_Roughness.png"
-dest_files=["res://.godot/imported/kolo_chomik_Roughness.png-cf4eaa19981ae9a62d68d289648bb83b.s3tc.ctex"]
+dest_files=["res://.godot/imported/kolo_chomik_Roughness.png-cf4eaa19981ae9a62d68d289648bb83b.s3tc.ctex", "res://.godot/imported/kolo_chomik_Roughness.png-cf4eaa19981ae9a62d68d289648bb83b.etc2.ctex"]
 
 [params]
 

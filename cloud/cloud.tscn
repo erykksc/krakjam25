@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b30k32vmyf1iw" path="res://icon.svg" id="1_3ysog"]
 [ext_resource type="Script" path="res://cloud/cloud.gd" id="1_a02rx"]
-[ext_resource type="PackedScene" uid="uid://cng8mj88xrw54" path="res://cloud/cloud.glb" id="3_n2abb"]
+[ext_resource type="PackedScene" uid="uid://bgyo1pqv7gr7s" path="res://cloud/cloud.glb" id="3_n2abb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cj40y"]
 albedo_texture = ExtResource("1_3ysog")

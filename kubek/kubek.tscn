@@ -37,17 +37,14 @@ clearcoat_enabled = true
 clearcoat_roughness = 0.27
 
 [node name="kubek" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
 script = ExtResource("1_iv0pa")
 
 [node name="kubek" parent="." instance=ExtResource("1_h1gaq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="kubek" parent="kubek" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_ou7m5")
 
 [node name="baseMilk" parent="." instance=ExtResource("7_bjb2p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 
 [node name="zolty" parent="baseMilk" index="0"]
@@ -72,15 +69,12 @@ visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
 
 [node name="lid" parent="." instance=ExtResource("2_m3nme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 
 [node name="ice" parent="." instance=ExtResource("5_mjqlg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 
 [node name="bubbles" parent="." instance=ExtResource("4_5676d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 
 [editable path="kubek"]

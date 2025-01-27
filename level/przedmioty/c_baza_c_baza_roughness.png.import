@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgvg675j7i8o5"
 path.s3tc="res://.godot/imported/c_baza_c_baza_roughness.png-f9084c020f4e792620939ef3466c778f.s3tc.ctex"
+path.etc2="res://.godot/imported/c_baza_c_baza_roughness.png-f9084c020f4e792620939ef3466c778f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://level/przedmioty/c_baza_c_baza_roughness.png"
-dest_files=["res://.godot/imported/c_baza_c_baza_roughness.png-f9084c020f4e792620939ef3466c778f.s3tc.ctex"]
+dest_files=["res://.godot/imported/c_baza_c_baza_roughness.png-f9084c020f4e792620939ef3466c778f.s3tc.ctex", "res://.godot/imported/c_baza_c_baza_roughness.png-f9084c020f4e792620939ef3466c778f.etc2.ctex"]
 
 [params]
 

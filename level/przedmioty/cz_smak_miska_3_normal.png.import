@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv8oaei4e47qf"
 path.s3tc="res://.godot/imported/cz_smak_miska_3_normal.png-2f7400b00dec44f7ce5cab2328179e9e.s3tc.ctex"
+path.etc2="res://.godot/imported/cz_smak_miska_3_normal.png-2f7400b00dec44f7ce5cab2328179e9e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://level/przedmioty/cz_smak_miska_3_normal.png"
-dest_files=["res://.godot/imported/cz_smak_miska_3_normal.png-2f7400b00dec44f7ce5cab2328179e9e.s3tc.ctex"]
+dest_files=["res://.godot/imported/cz_smak_miska_3_normal.png-2f7400b00dec44f7ce5cab2328179e9e.s3tc.ctex", "res://.godot/imported/cz_smak_miska_3_normal.png-2f7400b00dec44f7ce5cab2328179e9e.etc2.ctex"]
 
 [params]
 

@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://e24nibx5r303" path="res://player/hand_hamster/hand_hamster.glb" id="5_i8408"]
 [ext_resource type="PackedScene" uid="uid://n6gl1rx7yjw6" path="res://skillcheck/skillcheck.tscn" id="5_t8kic"]
 [ext_resource type="AudioStream" uid="uid://du413a88srxs6" path="res://music/sad-hamster-violin-made-with-Voicemod.mp3" id="5_wy6tl"]
-[ext_resource type="PackedScene" uid="uid://hy44ea4w5yer" path="res://player/hand/hand.tscn" id="6_hgm64"]
 [ext_resource type="FontFile" uid="uid://c43lx2le6dfu6" path="res://Atop.ttf" id="7_4uhab"]
 [ext_resource type="PackedScene" uid="uid://1tvr7onwuf7l" path="res://level/przedmioty/podkladka.tscn" id="8_gsevy"]
+[ext_resource type="PackedScene" uid="uid://hy44ea4w5yer" path="res://player/hand/hand.tscn" id="10_l1w36"]
 [ext_resource type="PackedScene" uid="uid://c654r26c735jg" path="res://level/przedmioty/cz_smak.glb" id="11_4b0us"]
 [ext_resource type="PackedScene" uid="uid://cldxbwkux06ow" path="res://level/przedmioty/c_baza.glb" id="12_nddup"]
 [ext_resource type="PackedScene" uid="uid://b3iel3pdhohdy" path="res://level/przedmioty/kosz.glb" id="13_06pnq"]
@@ -24,10 +24,10 @@
 [ext_resource type="PackedScene" uid="uid://d2tdbapdm2u3i" path="res://level/przedmioty/zgrzewarka.glb" id="18_ur8aw"]
 [ext_resource type="Script" path="res://client_spawn/client_spawn.gd" id="19_6dlb4"]
 [ext_resource type="PackedScene" uid="uid://cfdmogqs8fywc" path="res://level/przedmioty/kolo.glb" id="20_gghhn"]
-[ext_resource type="PackedScene" uid="uid://dmlf5xw1ibbq0" path="res://level/sklep/bar.glb" id="21_nse3o"]
-[ext_resource type="PackedScene" uid="uid://cww4i5457tj1d" path="res://level/sklep/lada.glb" id="22_7oi7d"]
-[ext_resource type="PackedScene" uid="uid://d08e1tk7bt5iv" path="res://level/sklep/shop.glb" id="23_1k3oc"]
-[ext_resource type="PackedScene" uid="uid://64chbnx6d5f1" path="res://level/sklep/sufit.glb" id="24_6sdq2"]
+[ext_resource type="PackedScene" uid="uid://pcnl688578i7" path="res://level/sklep/bar.glb" id="21_nse3o"]
+[ext_resource type="PackedScene" uid="uid://c5pqxm11ji7j1" path="res://level/sklep/lada.glb" id="22_7oi7d"]
+[ext_resource type="PackedScene" uid="uid://cer0j4rorvbwv" path="res://level/sklep/shop.glb" id="23_1k3oc"]
+[ext_resource type="PackedScene" uid="uid://ss4qwufq70pd" path="res://level/sklep/sufit.glb" id="24_6sdq2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ac66"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -150,11 +150,13 @@ anchor_right = 0.608
 offset_right = 0.639771
 offset_bottom = -0.200073
 
-[node name="hand" parent="Player/PlayerCamera" instance=ExtResource("6_hgm64")]
-transform = Transform3D(-0.954058, 0.0938118, 0.284557, 0.00723742, 0.956659, -0.291122, -0.299534, -0.275688, -0.913387, 0.779352, -0.311089, -1.21426)
+[node name="hand" parent="Player/PlayerCamera" instance=ExtResource("10_l1w36")]
+transform = Transform3D(-0.954058, 0.0938115, 0.284557, 0.00723742, 0.956659, -0.291122, -0.299534, -0.275688, -0.913387, 0.779352, -0.311089, -1.21426)
 
 [node name="HandMiddle" type="Marker3D" parent="Player/PlayerCamera/hand"]
-transform = Transform3D(1, 1.02445e-08, 2.98023e-08, -2.6077e-08, 1, -6.68806e-08, 4.47035e-08, -8.09086e-09, 1, 0.477694, -0.0508503, 0.427387)
+transform = Transform3D(0.999999, -2.70084e-08, -2.98023e-07, -1.49012e-08, 0.939693, 0.34202, 0, -0.34202, 0.939692, 0.5504, 0.000165194, 0.42202)
+
+[node name="kubek" parent="Player/PlayerCamera/hand/HandMiddle" instance_placeholder="res://kubek/kubek.tscn"]
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true

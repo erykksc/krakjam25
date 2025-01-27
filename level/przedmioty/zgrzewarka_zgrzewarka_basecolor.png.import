@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnxj1x1xhm8aw"
 path.s3tc="res://.godot/imported/zgrzewarka_zgrzewarka_basecolor.png-689c8ebb2fd980aae689813d28b54ade.s3tc.ctex"
+path.etc2="res://.godot/imported/zgrzewarka_zgrzewarka_basecolor.png-689c8ebb2fd980aae689813d28b54ade.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://level/przedmioty/zgrzewarka_zgrzewarka_basecolor.png"
-dest_files=["res://.godot/imported/zgrzewarka_zgrzewarka_basecolor.png-689c8ebb2fd980aae689813d28b54ade.s3tc.ctex"]
+dest_files=["res://.godot/imported/zgrzewarka_zgrzewarka_basecolor.png-689c8ebb2fd980aae689813d28b54ade.s3tc.ctex", "res://.godot/imported/zgrzewarka_zgrzewarka_basecolor.png-689c8ebb2fd980aae689813d28b54ade.etc2.ctex"]
 
 [params]
 

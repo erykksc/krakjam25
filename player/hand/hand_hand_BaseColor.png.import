@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpslm6uvqrd6s"
 path.s3tc="res://.godot/imported/hand_hand_BaseColor.png-96edf1b131bd25c4920930a8450a373e.s3tc.ctex"
+path.etc2="res://.godot/imported/hand_hand_BaseColor.png-96edf1b131bd25c4920930a8450a373e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://player/hand/hand_hand_BaseColor.png"
-dest_files=["res://.godot/imported/hand_hand_BaseColor.png-96edf1b131bd25c4920930a8450a373e.s3tc.ctex"]
+dest_files=["res://.godot/imported/hand_hand_BaseColor.png-96edf1b131bd25c4920930a8450a373e.s3tc.ctex", "res://.godot/imported/hand_hand_BaseColor.png-96edf1b131bd25c4920930a8450a373e.etc2.ctex"]
 
 [params]
 

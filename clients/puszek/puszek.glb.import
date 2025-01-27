@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8ob1gvlwwqeu"
+uid="uid://du4i544whg507"
 path="res://.godot/imported/puszek.glb-c54787b1cad46f8ec291eabe642287f6.scn"
 
 [deps]
@@ -33,4 +33,4 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
 gltf/naming_version=1
-gltf/embedded_image_handling=1
+gltf/embedded_image_handling=2

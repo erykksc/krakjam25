@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d08e1tk7bt5iv"
+uid="uid://cer0j4rorvbwv"
 path="res://.godot/imported/shop.glb-01c123911f9bd25da6b7c4bb3c1c604e.scn"
 
 [deps]
@@ -33,4 +33,4 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
 gltf/naming_version=1
-gltf/embedded_image_handling=1
+gltf/embedded_image_handling=2

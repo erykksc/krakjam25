@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx2sykwa43d6p"
 path.s3tc="res://.godot/imported/hand_hamster_chomik_Roughness.png-cc1156a228cbc6ef77a1144dfada56fe.s3tc.ctex"
+path.etc2="res://.godot/imported/hand_hamster_chomik_Roughness.png-cc1156a228cbc6ef77a1144dfada56fe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://player/hand_hamster/hand_hamster_chomik_Roughness.png"
-dest_files=["res://.godot/imported/hand_hamster_chomik_Roughness.png-cc1156a228cbc6ef77a1144dfada56fe.s3tc.ctex"]
+dest_files=["res://.godot/imported/hand_hamster_chomik_Roughness.png-cc1156a228cbc6ef77a1144dfada56fe.s3tc.ctex", "res://.godot/imported/hand_hamster_chomik_Roughness.png-cc1156a228cbc6ef77a1144dfada56fe.etc2.ctex"]
 
 [params]
 
