@@ -11,7 +11,8 @@ extends Node3D
 
 @export var spawnClientEvery:float = 4.0
 
-const SECONDS_PER_SUCCESSFUL_ORDER := 25.0
+const SECONDS_PER_SUCCESSFUL_ORDER: float = 25
+const PENALTY_PER_UNSUCCESSFUL_ORDER:float = 15
 
 var pointLabel: PackedScene = preload("res://point-label/point-label.tscn")
 
@@ -24,6 +25,9 @@ var points: int = 0:
 		TotalPoints.text = str(points)
 		if new_points>0:
 			gameTimer.wait_time = gameTimer.time_left + SECONDS_PER_SUCCESSFUL_ORDER
+			gameTimer.start()
+		else:
+			gameTimer.wait_time = max(gameTimer.time_left - PENALTY_PER_UNSUCCESSFUL_ORDER, 0.1)
 			gameTimer.start()
 	get:
 		return points
