@@ -38,10 +38,9 @@ func _ready() -> void :
 	add_child(timer)
 	timer.wait_time = spawnClientEvery
 	timer.timeout.connect(func()->void:
-		print("Attempting to spawn client")
 		var success:bool = clientSpawn.spawn()
 		if not success:
-			push_warning("Client failed to spawn")
+			print("Client failed to spawn, likely all seats are occupied")
 	)
 	timer.start()
 	clientSpawn.spawn()
