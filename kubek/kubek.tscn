@@ -9,26 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://cn2nrjd35mklk" path="res://kubek/niebieski.glb" id="6_e7s82"]
 [ext_resource type="PackedScene" uid="uid://bo6iwlkf8ebtv" path="res://kubek/zolty.glb" id="7_bjb2p"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyit5"]
-transparency = 1
-blend_mode = 3
-albedo_color = Color(1, 0.180392, 0.117647, 0.678431)
-clearcoat_enabled = true
-clearcoat_roughness = 0.3
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou7m5"]
 transparency = 1
 blend_mode = 1
-cull_mode = 1
 clearcoat_enabled = true
 clearcoat_roughness = 0.34
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s0fm"]
-transparency = 1
-blend_mode = 3
-albedo_color = Color(0.360823, 0.506491, 0.941839, 0.996078)
-clearcoat_enabled = true
-clearcoat_roughness = 0.27
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ilpj"]
 transparency = 1
@@ -37,62 +22,69 @@ albedo_color = Color(1, 0.701961, 0, 1)
 clearcoat_enabled = true
 clearcoat_roughness = 0.3
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyit5"]
+transparency = 1
+blend_mode = 3
+albedo_color = Color(1, 0.180392, 0.117647, 0.678431)
+clearcoat_enabled = true
+clearcoat_roughness = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s0fm"]
+transparency = 1
+blend_mode = 3
+albedo_color = Color(0.360823, 0.506491, 0.941839, 0.996078)
+clearcoat_enabled = true
+clearcoat_roughness = 0.27
+
 [node name="kubek" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
 script = ExtResource("1_iv0pa")
 
-[node name="czerwony2" parent="." instance=ExtResource("1_2cq0k")]
+[node name="kubek" parent="." instance=ExtResource("1_h1gaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="czerwony" parent="czerwony2" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_yyit5")
-
-[node name="folia2" parent="." instance=ExtResource("2_m3nme")]
-visible = false
-
-[node name="kubek2" parent="." instance=ExtResource("1_h1gaq")]
-
-[node name="kubek" parent="kubek2" index="0"]
+[node name="kubek" parent="kubek" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_ou7m5")
 
-[node name="kulki2" parent="." instance=ExtResource("4_5676d")]
+[node name="baseMilk" parent="." instance=ExtResource("7_bjb2p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 
-[node name="lod2" parent="." instance=ExtResource("5_mjqlg")]
+[node name="zolty" parent="baseMilk" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
 
-[node name="niebieski2" parent="." instance=ExtResource("6_e7s82")]
+[node name="baseRed" parent="." instance=ExtResource("1_2cq0k")]
 visible = false
 
-[node name="niebieski" parent="niebieski2" index="0"]
+[node name="czerwony" parent="baseRed" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yyit5")
+
+[node name="wormBlue" parent="." instance=ExtResource("6_e7s82")]
+visible = false
+
+[node name="niebieski" parent="wormBlue" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_7s0fm")
 
-[node name="zolty2" parent="." instance=ExtResource("7_bjb2p")]
+[node name="wormYellow" parent="." instance=ExtResource("7_bjb2p")]
 visible = false
 
-[node name="zolty" parent="zolty2" index="0"]
+[node name="zolty" parent="wormYellow" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
 
-[node name="mleko" parent="." instance=ExtResource("7_bjb2p")]
+[node name="lid" parent="." instance=ExtResource("2_m3nme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 
-[node name="zolty" parent="mleko" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
-
-[node name="zolty4" parent="." instance=ExtResource("7_bjb2p")]
+[node name="ice" parent="." instance=ExtResource("5_mjqlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 
-[node name="zolty" parent="zolty4" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
-
-[node name="zolty5" parent="." instance=ExtResource("7_bjb2p")]
+[node name="bubbles" parent="." instance=ExtResource("4_5676d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 
-[node name="zolty" parent="zolty5" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
-
-[editable path="czerwony2"]
-[editable path="kubek2"]
-[editable path="lod2"]
-[editable path="niebieski2"]
-[editable path="zolty2"]
-[editable path="mleko"]
-[editable path="zolty4"]
-[editable path="zolty5"]
+[editable path="kubek"]
+[editable path="baseMilk"]
+[editable path="baseRed"]
+[editable path="wormBlue"]
+[editable path="wormYellow"]
