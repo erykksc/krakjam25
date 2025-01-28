@@ -8,7 +8,7 @@ var contents: Array[String] = []
 @onready var baseMilk: Node3D = $baseMilk
 
 @onready var wormYellow: Node3D = $wormYellow
-@onready var wormRed: Node3D = $baseRed
+@onready var wormRed: Node3D = $wormRed
 @onready var wormBlue: Node3D = $wormBlue
 
 @onready var ice: Node3D = $ice

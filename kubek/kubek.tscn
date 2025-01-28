@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://deo1dfdm64v6h"]
+[gd_scene load_steps=14 format=3 uid="uid://deo1dfdm64v6h"]
 
 [ext_resource type="PackedScene" uid="uid://4bfbl8qvxyc2" path="res://kubek/czerwony.glb" id="1_2cq0k"]
 [ext_resource type="PackedScene" uid="uid://d12xl72csfme6" path="res://kubek/kubek.glb" id="1_h1gaq"]
@@ -11,30 +11,33 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou7m5"]
 transparency = 1
-blend_mode = 1
+albedo_color = Color(1, 1, 1, 0.313726)
 clearcoat_enabled = true
 clearcoat_roughness = 0.34
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ilpj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c76dl"]
 transparency = 1
-blend_mode = 3
-albedo_color = Color(1, 0.701961, 0, 1)
-clearcoat_enabled = true
-clearcoat_roughness = 0.3
+blend_mode = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyit5"]
 transparency = 1
-blend_mode = 3
-albedo_color = Color(1, 0.180392, 0.117647, 0.678431)
+blend_mode = 1
+albedo_color = Color(1, 0.180392, 0.117647, 1)
 clearcoat_enabled = true
 clearcoat_roughness = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s0fm"]
 transparency = 1
-blend_mode = 3
-albedo_color = Color(0.360823, 0.506491, 0.941839, 0.996078)
+albedo_color = Color(0.360784, 0.505882, 0.941176, 0.87451)
 clearcoat_enabled = true
 clearcoat_roughness = 0.27
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ilpj"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 0.701961, 0, 1)
+clearcoat_enabled = true
+clearcoat_roughness = 0.3
 
 [node name="kubek" type="Node3D"]
 script = ExtResource("1_iv0pa")
@@ -48,12 +51,18 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ou7m5")
 visible = false
 
 [node name="zolty" parent="baseMilk" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8ilpj")
+surface_material_override/0 = SubResource("StandardMaterial3D_c76dl")
 
 [node name="baseRed" parent="." instance=ExtResource("1_2cq0k")]
 visible = false
 
 [node name="czerwony" parent="baseRed" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yyit5")
+
+[node name="wormRed" parent="." instance=ExtResource("1_2cq0k")]
+visible = false
+
+[node name="czerwony" parent="wormRed" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_yyit5")
 
 [node name="wormBlue" parent="." instance=ExtResource("6_e7s82")]
@@ -80,5 +89,6 @@ visible = false
 [editable path="kubek"]
 [editable path="baseMilk"]
 [editable path="baseRed"]
+[editable path="wormRed"]
 [editable path="wormBlue"]
 [editable path="wormYellow"]
