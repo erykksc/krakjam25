@@ -79,10 +79,10 @@ func spawn_point_label(new_points: int)->void:
 	popup.text += str(abs(new_points))
 
 
-	var min_x:float = get_viewport().size.x * 0.2
-	var max_x:float = get_viewport().size.x * 0.8
-	var min_y:float = get_viewport().size.y * 0.2
-	var max_y:float = get_viewport().size.y * 0.8
+	var min_x:float = get_viewport().get_visible_rect().size.x * 0.2
+	var max_x:float = get_viewport().get_visible_rect().size.x * 0.8
+	var min_y:float = get_viewport().get_visible_rect().size.y * 0.2
+	var max_y:float = get_viewport().get_visible_rect().size.y * 0.8
 
 	# random position within viewport
 	var random_pos:Vector2 = Vector2(
