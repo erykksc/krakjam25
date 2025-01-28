@@ -90,7 +90,7 @@ text = "Your Score"
 label_settings = SubResource("LabelSettings_p7tff")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="ContinueButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1537.0
 offset_top = 454.0
@@ -99,5 +99,4 @@ offset_bottom = 525.0
 shortcut = SubResource("Shortcut_oyadg")
 text = "Continue"
 
-[connection signal="button_up" from="Button" to="." method="_on_continue_button_press"]
-[connection signal="pressed" from="Button" to="." method="_on_continue_button_press"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
