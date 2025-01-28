@@ -35,6 +35,7 @@ var pointLabel: PackedScene = preload("res://point-label/point-label.tscn")
 
 func _ready() -> void :
 	print("PREPARING THE GAME...")
+	TotalPoints.text = "0"
 	cute_recruit_246084.play()
 	randomize() # randomizes the game seed
 
