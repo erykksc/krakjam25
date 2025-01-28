@@ -20,19 +20,21 @@ func _ready() -> void:
 var is_in_area: bool = false
 var time_passed: float = 0
 
-const PLAYER_BAR_SPEED := 6
+const PLAYER_BAR_SPEED:float = 6
+const PROGESS_BAR_SPEED:float = 20
 
 func _process(delta: float)-> void:
+	if not skillcheck.visible:
+		return
+
 	time_passed += delta
 	playerBar.position.y = clamp(playerBar.position.y, -3.5, 2.5)
 	aiBar.position.y = clamp(aiBar.position.y, -3.5, 2)
 
-	if skillcheck.visible == true:
-		if is_in_area == true:
-			progress_bar.value += 20 * delta
-		
-		elif progress_bar.value >= 0:
-			progress_bar.value -= 10 * delta
+	if is_in_area == true:
+		progress_bar.value += PROGESS_BAR_SPEED * delta
+	elif progress_bar.value >= 0:
+		progress_bar.value -= PROGESS_BAR_SPEED/2 * delta
 		
 	if progress_bar.value >= 100:
 		skill_check_end()
@@ -67,4 +69,3 @@ func _on_playerbar_area_entered(_area: Area3D) -> void:
 
 func _on_playerbar_area_exited(_area: Area3D) -> void:
 	is_in_area = false
-	
