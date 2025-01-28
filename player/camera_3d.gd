@@ -27,6 +27,7 @@ func look_updown_rotation(new_rotation:float = 0)->Vector3:
 	We'll use this vector to compute the final 3D rotation later
 	"""
 	var toReturn := self.get_rotation() + Vector3(new_rotation, 0, 0)
+	toReturn[0] = clamp(toReturn[0], -PI/2, PI/2)
 	# toReturn.x = clamp(toReturn.x, -PI/2, PI/2)
 	return toReturn
 	
