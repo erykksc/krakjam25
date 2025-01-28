@@ -1,8 +1,8 @@
 class_name Client
 extends Node3D
 
-@export var order_wait_time: float = 9999.0
-@export var points_for_order: int = 100
+var order_wait_time: float = 9999.0
+var points_per_ingredient: int = 100
 var disapointed: AudioStreamMP3 = preload("res://music/i-am-very-disappointed-male-spoken-213232.mp3")
 var audio_player := AudioStreamPlayer.new()
 @onready var game: Game = get_tree().current_scene
@@ -93,7 +93,7 @@ func _on_wrong_order_submitted(prepared_order: Array[String]) -> void:
 	print("Wrong order submitted, wanted: ", order, " received: ", prepared_order)
 	for cloud: Cloud in clouds.get_children():
 		cloud.flash_color(Color.RED)
-	game.points -= points_for_order
+	game.points -= points_per_ingredient
 	await get_tree().create_timer(Cloud.COLOR_FLASH_DURATION).timeout
 	queue_free()
 
@@ -101,7 +101,7 @@ func _on_correct_order_submitted() -> void:
 	print("Good order submitted")
 	for cloud: Cloud in clouds.get_children():
 		cloud.flash_color(Color.GREEN)
-	game.points += points_for_order
+	game.points += points_per_ingredient * (order.size() - 1) # -1 because lid is necessary
 	await get_tree().create_timer(Cloud.COLOR_FLASH_DURATION).timeout
 	queue_free()
 
@@ -113,7 +113,7 @@ func _on_order_wait_timeout() -> void:
 		cloud.flash_color(Color.RED)
 	
 	# Deduct points from the game
-	game.points -= points_for_order
+	game.points -= points_per_ingredient
 
 	# Set up the timer
 	var audio_length: float = audio_player.stream.get_length()  # Get length of the audio
