@@ -39,7 +39,10 @@ func _input(event: InputEvent) -> void:
 		return
 
 	var interactable: Node3D = ray_cast_3d.get_collider().owner
+	interact(interactable)
+	print("now in kubek:", kubek_in_hand.contents)
 
+func interact(interactable: Node3D) -> void:
 	# Check if trying to reach for kubek
 	if interactable==%kubki and kubek_in_hand == null:
 		var kubek := kubek_scene.instantiate()
@@ -52,7 +55,9 @@ func _input(event: InputEvent) -> void:
 		return
 
 	# Check if interacting with hamster/kulki
-	if interactable == %kolo:
+	if interactable == %kolo :
+		if kubek_in_hand.contents.has(Ingredients.TAPIOKA):
+			return
 		ray_cast_3d.enabled = false
 		skillcheck.visible = true
 		progress_bar.visible = true
@@ -61,7 +66,6 @@ func _input(event: InputEvent) -> void:
 		cute_recruit_246084.set_volume_db(-80)
 		sad_hamster.play()
 		start_squeezing_hamster()
-		
 
 	if interactable == %m_baza:
 		kubek_in_hand.add_ingredient(Ingredients.TeaBase.WHITE)
@@ -107,7 +111,6 @@ func _input(event: InputEvent) -> void:
 		if  client:
 			client.submit_order(kubek_in_hand)
 
-	print("now in kubek:", kubek_in_hand.contents)
 	
 func start_squeezing_hamster() -> void:
 	var animPlayer:AnimationPlayer = hand_hamster.get_node("AnimationPlayer")
