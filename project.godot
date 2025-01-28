@@ -32,6 +32,10 @@ window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[editor]
+
+movie_writer/movie_file="./movie.avi"
+
 [global_group]
 
 interactable=""
