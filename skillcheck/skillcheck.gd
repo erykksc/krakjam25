@@ -14,65 +14,53 @@ extends Node3D
 @onready var bubble_hitsound: AudioStreamPlayer = $"../../BubbleHitsound"
 
 
-var end: bool
-var bar: float 
-var is_in_area: bool
-var time_passed: float
-var current_random_value: float
-var aiIncrement: bool 
-var playerIncrement: bool
+func _ready() -> void:
+	progress_bar.value = 0
 
+var is_in_area: bool = false
+var time_passed: float = 0
 
-func _physics_process(delta: float)-> void:
+const PLAYER_BAR_SPEED := 6
+
+func _process(delta: float)-> void:
+	time_passed += delta
 	playerBar.position.y = clamp(playerBar.position.y, -3.5, 2.5)
 	aiBar.position.y = clamp(aiBar.position.y, -3.5, 2)
-	skill_check_end()
-	time_passed += delta
-	
-	if playerIncrement == false:
-		playerBar.position.y -= 10 * delta
-		
-	if playerIncrement == true:
-		playerBar.position.y += 10 * delta
-		
-	if time_passed >= 0.5:
-		time_passed = 0.0
-		current_random_value = randf_range(-10, 10)
-		aiIncrement = true
 
-	if aiIncrement == true:
-		aiBar.position.y += current_random_value * delta
-		progress_bar.value = bar
-	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("space"):
-		playerIncrement = true
-	else:
-		playerIncrement = false
-		
-		
-func skill_check_end() -> void:
 	if skillcheck.visible == true:
 		if is_in_area == true:
-			bar += 0.5
+			progress_bar.value += 20 * delta
 		
-		elif bar >= 0:
-			bar -= 0.25
+		elif progress_bar.value >= 0:
+			progress_bar.value -= 10 * delta
 		
-	if bar >= 100:
-		ray_cast_3d.enabled = true
-		skillcheck.visible = false
-		progress_bar.visible = false
-		crosshair.visible = true
-		%PlayerCamera.movement_disabled = false
-		bar = 0
-		hand_hamster.visible = false
-		hand.visible = true
-		animation_player.stop()
-		bubble_hitsound.play()
-		sad_hamster.stop()
-		cute_recruit_246084.set_volume_db(0)
-		%Player.kubek_in_hand.add_ingredient(Ingredients.TAPIOKA)
+	if progress_bar.value >= 100:
+		skill_check_end()
+
+	if Input.is_action_pressed("space"):
+		playerBar.position.y += PLAYER_BAR_SPEED * delta
+	else:
+		playerBar.position.y -= PLAYER_BAR_SPEED * delta
+		
+	# Move target position every half second
+	if time_passed >= 0.5:
+		time_passed = 0.0
+		aiBar.position.y = randf_range(-3.5, 2)
+		
+func skill_check_end() -> void:
+	ray_cast_3d.enabled = true
+	skillcheck.visible = false
+	progress_bar.visible = false
+	crosshair.visible = true
+	%PlayerCamera.movement_disabled = false
+	progress_bar.value = 0
+	hand_hamster.visible = false
+	hand.visible = true
+	animation_player.stop()
+	bubble_hitsound.play()
+	sad_hamster.stop()
+	cute_recruit_246084.set_volume_db(0)
+	%Player.kubek_in_hand.add_ingredient(Ingredients.TAPIOKA)
 		
 func _on_playerbar_area_entered(_area: Area3D) -> void:
 	is_in_area = true
