@@ -7,7 +7,8 @@ extends Node3D
 @onready var clientSpawn:ClientSpawn  = %ClientSpawn
 @onready var cute_recruit_246084: AudioStreamPlayer = $"Player/Cute-recruit-246084"
 @onready var TimeLeft:Label = %TimeLeft
-@onready var gameTimer:Timer  = Timer.new()
+
+var gameTimer := Timer.new()
 
 @export var spawnClientEvery:float = 4.0
 
@@ -16,7 +17,7 @@ const PENALTY_PER_UNSUCCESSFUL_ORDER:float = 15
 
 var pointLabel: PackedScene = preload("res://point-label/point-label.tscn")
 
-var points: int = 0:
+@onready var points: int = 0:
 	set(value):
 		var new_points:int = value - points
 		spawn_point_label(new_points)
@@ -33,9 +34,9 @@ var points: int = 0:
 		return points
 
 func _ready() -> void :
+	print("PREPARING THE GAME...")
 	cute_recruit_246084.play()
 	randomize() # randomizes the game seed
-	%TotalPoints.text = "0"
 
 	# Try to spawn new clients every 4 second
 	var timer:Timer = Timer.new()
