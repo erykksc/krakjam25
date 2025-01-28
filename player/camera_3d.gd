@@ -64,10 +64,9 @@ func _enter_tree()->void:
 	"""
 	Hide the mouse when we start
 	"""
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _leave_tree()->void:
+func _exit_tree()->void:
 	"""
 	Show the mouse when we leave
 	"""
