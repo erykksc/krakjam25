@@ -24,16 +24,17 @@ script = ExtResource("1_b8lf2")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 3840.0
+offset_bottom = 2160.0
 texture = ExtResource("3_78bfo")
+expand_mode = 3
 
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1351.0
-offset_top = 452.0
-offset_right = 1607.0
-offset_bottom = 597.0
+offset_left = 2966.0
+offset_top = 774.0
+offset_right = 3353.0
+offset_bottom = 969.0
 scale = Vector2(1.22727, 0.984375)
 theme_override_fonts/font = ExtResource("2_ksauv")
 theme_override_font_sizes/font_size = 100

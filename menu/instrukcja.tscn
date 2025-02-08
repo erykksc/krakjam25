@@ -16,16 +16,16 @@ script = ExtResource("1_gwlqp")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 3840.0
+offset_bottom = 2140.0
 texture = ExtResource("1_um5sk")
 
 [node name="startButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1586.0
-offset_top = 114.0
-offset_right = 1750.0
-offset_bottom = 185.0
+offset_left = 3307.0
+offset_top = 316.0
+offset_right = 3600.0
+offset_bottom = 490.0
 theme_override_fonts/font = ExtResource("2_77j0r")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = ExtResource("4_kcp12")

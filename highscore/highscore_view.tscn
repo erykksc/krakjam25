@@ -40,7 +40,7 @@ script = ExtResource("2_837d2")
 [node name="HighscoreLabel" type="Label" parent="."]
 layout_mode = 0
 offset_top = 280.0
-offset_right = 1920.0
+offset_right = 3840.0
 offset_bottom = 381.0
 text = "Highscores"
 label_settings = SubResource("LabelSettings_ilsnv")
@@ -49,8 +49,8 @@ horizontal_alignment = 1
 [node name="Highscores" type="Label" parent="."]
 layout_mode = 0
 offset_top = 394.0
-offset_right = 1920.0
-offset_bottom = 1074.0
+offset_right = 3840.0
+offset_bottom = 2146.0
 text = "Eryk: 2000
 Julia: 1900
 Kuba: 1890
@@ -72,7 +72,7 @@ color = Color(0.221302, 0.221302, 0.221302, 1)
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
 offset_top = 100.0
-offset_right = 1919.0
+offset_right = 3840.0
 offset_bottom = 201.0
 text = "3000
 "
@@ -84,6 +84,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -2049.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Your Score"
@@ -92,10 +93,10 @@ horizontal_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1537.0
-offset_top = 454.0
-offset_right = 1792.0
-offset_bottom = 525.0
+offset_left = 2998.0
+offset_top = 435.0
+offset_right = 3423.0
+offset_bottom = 602.0
 shortcut = SubResource("Shortcut_oyadg")
 text = "Continue"
 
